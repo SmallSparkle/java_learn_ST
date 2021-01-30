@@ -16,6 +16,7 @@ public class Point {
     return distance(this, b);
   }//метод объекта Point
 
+  //изменила названия параметров, мне удобнее ориентироваться
   public static double distance(Point a, Point b){
     return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y -b.y, 2));
     //AB = √(xb - xa)2 + (yb - ya)2
