@@ -5,23 +5,26 @@ public class MyFirstProgram {
     hello("World");
     hello("User");
 
-    double l = 5;
-    System.out.println("Площадь квадрата со стороной "+l+" = "+area(l));
+    Square s = new Square();
+    s.l =5;
+//    System.out.println("Площадь квадрата со стороной "+s.l+" = "+area(s.l));
 
-    double a=4;
-    double b=6;
-    System.out.println("Площадь прямоугольника со сторонами "+a+" "+b+" = "+area(a, b));
+    Rectangle r = new Rectangle();
+
+    r.a=4;
+    r.b=6;
+   // System.out.println("Площадь прямоугольника со сторонами "+r.a+" "+r.b+" = "+area(r.a, r.b));
   }
 
   public static void hello(String somebody) {
     System.out.println("Hello " + somebody + "!");
   }
 
-  public static double area(double len) {
-    return len * len;
+  public static double area(Square s) {
+    return s.l * s.l;
   }
 
-  public static double area(double a, double b){
-    return a*b;
+  public static double area(Rectangle r){
+    return r.a * r.b;
   }
 }
