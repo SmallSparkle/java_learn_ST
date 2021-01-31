@@ -3,7 +3,7 @@ package ru.packaje1.lesson1;
 import java.lang.Math;
 
 public class Point {
-  Point(double x, double y){
+  public Point(double x, double y){
    this.x = x;
    this.y = y;
   }//конструктор
