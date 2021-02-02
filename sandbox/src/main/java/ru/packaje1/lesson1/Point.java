@@ -13,13 +13,7 @@ public class Point {
   //переменные осей
 
   public double distance(Point b) {
-    return distance(this, b);
+    return Math.sqrt(Math.pow(this.x - b.x, 2) + Math.pow(this.y -b.y, 2));
   }//метод объекта Point
-
-  //изменила названия параметров, мне удобнее ориентироваться
-  public static double distance(Point a, Point b){
-    return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y -b.y, 2));
-    //AB = √(xb - xa)2 + (yb - ya)2
-  }//функция вычисления расстояния между 2-мя точками
 
 }
