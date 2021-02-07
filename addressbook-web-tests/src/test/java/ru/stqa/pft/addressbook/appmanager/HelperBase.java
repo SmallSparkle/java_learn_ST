@@ -10,12 +10,12 @@ public class HelperBase {
     this.wd = wd;
   }
 
-  protected void clic(By locator) {
+  protected void click(By locator) {
     wd.findElement(locator).click();
   }
 
   protected void type(By locator, String text) {
-    clic(locator);
+    click(locator);
     wd.findElement(locator).clear();
     wd.findElement(locator).sendKeys(text);
   }
