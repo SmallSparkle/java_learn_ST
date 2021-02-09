@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.ContactData;
 
+import static org.testng.Assert.assertTrue;
+
 public class ContactHelper extends HelperBase {
 
   public ContactHelper(WebDriver wd) {
@@ -33,5 +35,17 @@ public class ContactHelper extends HelperBase {
     new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getAddGroup());
     type(By.name("notes"), contactData.getNotesText());
 
+  }
+
+  public void selectContact() {
+    click(By.xpath("(//input[@name='selected[]'])"));
+  }
+
+  public void deleteSelectedContact() {
+    click(By.xpath("//input[@value='Delete']"));
+  }
+
+  public void closeAlert() {
+    wd.switchTo().alert().accept();
   }
 }
