@@ -24,5 +24,8 @@ public class Equation {
       }
     }
   }
-  
+  public int getN(){
+    return n;
+  }
+
 }

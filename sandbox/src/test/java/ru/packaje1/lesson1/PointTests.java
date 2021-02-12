@@ -1,8 +1,7 @@
 package ru.packaje1.lesson1;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import static ru.packaje1.lesson1.ShowDistanceBPoints.distance;
+import ru.packaje1.lesson1.ShowDistanceBPoints.*;
 
 public class PointTests {
   @Test
@@ -31,13 +30,13 @@ public class PointTests {
   public void SquareTestsStatic() {
     Point p = new Point(1.0, 2.0);
     Point p1 = new Point(3.0, 5.0);
-    Assert.assertEquals(distance(p, p1), 3.60555127546398);
+    Assert.assertEquals(ShowDistanceBPoints.distance(p, p1), 3.60555127546398);
   }//тест статичного метода - специально падает т.к. ожидание указано не верно
 
   @Test
   public void SquareTestsStaticPasst() {
     Point p = new Point(1.0, 12.0);
     Point p1 = new Point(44.0, 5.0);
-    Assert.assertEquals(distance(p, p1), 43.56604182158393);
+    Assert.assertEquals(ShowDistanceBPoints.distance(p, p1), 43.56604182158393);
   }
 }
