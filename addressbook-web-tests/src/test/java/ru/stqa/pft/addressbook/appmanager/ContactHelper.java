@@ -3,7 +3,10 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+import java.util.NoSuchElementException;
 
 import static org.testng.Assert.assertTrue;
 
@@ -13,11 +16,11 @@ public class ContactHelper extends HelperBase {
     super(wd);
   }
 
-  public void submitContactCreation() {
-    click(By.xpath("(//input[@name='submit'])[2]"));
+  public void submit(String locator) {
+    click(By.xpath(locator));
   }
 
-  public void fillContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getName());
     type(By.name("middlename"), contactData.getMiddlename());
     type(By.name("lastname"), contactData.getLastname());
@@ -31,21 +34,26 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.name("bmonth")).click();
     new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBmonth());
     type(By.name("byear"), contactData.getByear());
-    wd.findElement(By.name("new_group")).click();
-    new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getAddGroup());
+    if (creation) {
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getAddGroup());
+    } else {
+      Assert.assertFalse((isElementPresent(By.name("new_group"))));
+    }
     type(By.name("notes"), contactData.getNotesText());
 
   }
 
-  public void selectContact() {
-    click(By.xpath("(//input[@name='selected[]'])"));
+  public void selectContact(String locator) {
+    submit(locator);
   }
 
-  public void deleteSelectedContact() {
-    click(By.xpath("//input[@value='Delete']"));
+  public void deleteSelectedContact(String locator) {
+    click(By.xpath(locator));
   }
 
   public void closeAlert() {
     wd.switchTo().alert().accept();
   }
+
+
 }

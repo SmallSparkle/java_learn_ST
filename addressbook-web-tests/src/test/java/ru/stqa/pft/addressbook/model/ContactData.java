@@ -31,6 +31,11 @@ public class ContactData {
     this.notesText = notesText;
   }
 
+//  public ContactData(String mobilePhone, String address) {
+//    this.mobilePhone = mobilePhone;
+//    this.address = address;
+//  }
+
   public String getName() {
     return name;
   }
