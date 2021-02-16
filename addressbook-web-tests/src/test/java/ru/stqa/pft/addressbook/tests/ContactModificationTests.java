@@ -8,7 +8,7 @@ public class ContactModificationTests extends TestBase {
   public void modificationContactTest(){
     app.getNavigationHelper().goToHomePage();
     app.getContactHelper().selectContact("//img[@alt='Edit']");
-    app.getContactHelper().fillContactForm(new ContactData("Anna", "Amina", "Bespalova", "Moscow Lenina 25", "4959880012", "0001120003", "some@some.mail", "some2@some.mail", "5", "May", "1987", null, "test notes"), false);
+    app.getContactHelper().fillContactForm(new ContactData("Anna", "Amina", "Bespalova", "Moscow Lenina 25", "4959880012", "0001120003", "some@some.mail", "some2@some.mail", "5", "May", "1987",  "test1", "test notes"), false);
     app.getContactHelper().submit("(//input[@name='update'])[2]");
 
     //wd.findElement(By.xpath("//img[@alt='Edit']")).click();
