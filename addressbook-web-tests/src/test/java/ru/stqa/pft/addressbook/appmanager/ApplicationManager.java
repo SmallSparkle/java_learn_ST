@@ -1,10 +1,11 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.BrowserType;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,7 +13,9 @@ import static org.openqa.selenium.remote.BrowserType.*;
 
 public class ApplicationManager {
 
+
   public WebDriver wd;
+  private HelperBase helper;
   private ContactHelper contactHelper;
   private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
@@ -32,17 +35,18 @@ public class ApplicationManager {
     } else if (browser.equals(IE)) {
       wd = new InternetExplorerDriver();
     }
-    wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/index.php");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     contactHelper = new ContactHelper(wd);
     sessionHelper = new SessionHelper(wd);
+    helper = new HelperBase(wd);
     sessionHelper.login("admin", "secret");
   }
 
   public void logout() {
-    navigationHelper.goToContactCreatForm("Logout");
+    helper.click(By.linkText("Logout"));
   }
 
   public void stop() {
@@ -59,5 +63,9 @@ public class ApplicationManager {
 
   public ContactHelper getContactHelper() {
     return contactHelper;
+  }
+
+  public HelperBase getHelper() {
+    return helper;
   }
 }

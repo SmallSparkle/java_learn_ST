@@ -35,6 +35,10 @@ public class HelperBase {
     }
   }
 
+  public void returnToGroupPage() {
+    click(By.linkText("group page"));
+  }
+
 //  public boolean isAlertPresent() {
 //    try {
 //      wd.switchTo().alert();
