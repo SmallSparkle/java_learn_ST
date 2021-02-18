@@ -5,7 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
+
+
 
 public class ContactHelper extends HelperBase {
 
@@ -32,12 +33,7 @@ public class ContactHelper extends HelperBase {
     new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBmonth());
     type(By.name("byear"), contactData.getByear());
     if (creation) {
-      if (! isElementPresent(By.name("new_group").getText().equals("test1"))
-       {
-        new GroupHelper(wd).createGroup(new GroupData("test1", null, null));
-      }
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getAddGroup());
-    } else {
+    } else { new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getAddGroup());
       Assert.assertFalse((isElementPresent(By.name("new_group"))));
     }
     type(By.name("notes"), contactData.getNotesText());
@@ -56,18 +52,20 @@ public class ContactHelper extends HelperBase {
     wd.switchTo().alert().accept();
   }
 
-  public void goToContactCreatForm(String s) {
+  public void goToContactCreateForm(String s) {
     click(By.linkText(s));
   }
 
   public void createContact(ContactData contact, boolean creation) {
-    goToContactCreatForm("add new");
+    goToContactCreateForm("add new");
     fillContactForm(contact, creation);
     submit("(//input[@name='submit'])[2]");
-    returnToGroupPage();
+    returnToPage("home page");
   }
+
 
   public boolean isThereAContact() {
     return isElementPresent(By.xpath("(//input[@name='selected[]'])"));
   }
+
 }

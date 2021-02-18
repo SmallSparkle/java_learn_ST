@@ -1,17 +1,18 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.*;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 public class ContactCreationTests extends TestBase {
   @Test
   public void testUntitledTestCase() throws Exception {
-   // app.getContactHelper().createContact(new ContactData("Anna", "Amina", "Bespalova", "Moscow Lenina 10", "4959880012", "9660001213", "some@some.mail", "some2@some.mail", "5", "May", "1987", "test1", "test notes"), true);
-    app.getContactHelper().goToContactCreatForm("add new");
-    app.getContactHelper().fillContactForm(new ContactData("Anna", "Amina", "Bespalova", "Moscow Lenina 10", "4959880012", "9660001213", "some@some.mail", "some2@some.mail", "5", "May", "1987", "test1", "test notes"), true);
-    app.getContactHelper().submit( "(//input[@name='submit'])[2]");
-    app.getNavigationHelper().goToHomePage();
-    //добавила шаг т.к. нужна проверка что контакт добавлен и отображается но я пока не знаю как это написать
+    app.getNavigationHelper().goToGroupPage();
+    if (!app.getGroupHelper().isThereAGroup(By.name("selected[]"))) {
+      app.getGroupHelper().createGroup(new GroupData("test1", null, null));
+    }
+    app.getContactHelper().createContact(new ContactData("Anna", "Amina", "Bespalova", "Moscow Lenina 10", "4959880012", "9660001213", "some@some.mail", "some2@some.mail", "5", "May", "1987", "test1", "test notes"), true);
     app.logout();
   }
 }

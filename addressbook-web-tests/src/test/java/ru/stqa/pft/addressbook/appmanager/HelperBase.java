@@ -35,8 +35,8 @@ public class HelperBase {
     }
   }
 
-  public void returnToGroupPage() {
-    click(By.linkText("group page"));
+  public void returnToPage(String locator) {
+    click(By.linkText(locator));
   }
 
 //  public boolean isAlertPresent() {

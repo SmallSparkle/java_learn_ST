@@ -12,6 +12,7 @@ public class TestBase {
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
     app.init();
+
   }
 
   @AfterMethod(alwaysRun = true)

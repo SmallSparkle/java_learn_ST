@@ -10,7 +10,7 @@ public class GroupHelper extends HelperBase {
     super(wd);
   }
 
-  public void returnToGroupPage() {
+  public void returnToPage(String locator) {
     click(By.linkText("group page"));
   }
 
@@ -48,7 +48,7 @@ public class GroupHelper extends HelperBase {
     initGroupCreation();
     fillGroupForm(group);
     submitGroupCreation();
-    returnToGroupPage();
+    returnToPage("group page");
   }
 
   public boolean isThereAGroup(By locator) {
