@@ -7,7 +7,6 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 
-
 public class ContactHelper extends HelperBase {
 
   public ContactHelper(WebDriver wd) {
@@ -33,7 +32,8 @@ public class ContactHelper extends HelperBase {
     new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBmonth());
     type(By.name("byear"), contactData.getByear());
     if (creation) {
-    } else { new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getAddGroup());
+      new Select(wd.findElement(By.name("new_group"))).selectByIndex(1);
+    } else {
       Assert.assertFalse((isElementPresent(By.name("new_group"))));
     }
     type(By.name("notes"), contactData.getNotesText());
@@ -64,8 +64,8 @@ public class ContactHelper extends HelperBase {
   }
 
 
-  public boolean isThereAContact() {
-    return isElementPresent(By.xpath("(//input[@name='selected[]'])"));
+  public boolean isThereAContact(By locator) {
+    return isElementPresent(locator);
   }
-
+//"(//input[@name='selected[]'])"
 }
