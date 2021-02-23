@@ -10,7 +10,6 @@ public class ContactModificationTests extends TestBase {
   @Test
   public void modificationContactTest() {
     app.getNavigationHelper().goToGroupPage();
-    OUTER:
     if (!app.getGroupHelper().isThereAGroup(By.name("selected[]"))) {
       app.getGroupHelper().createGroup(new GroupData("test1", null, null));
     }
