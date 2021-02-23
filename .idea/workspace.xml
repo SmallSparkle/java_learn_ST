@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31576632-adc1-44ef-a525-859e821c1d8b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/lesson4/Primes.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/lesson4/Primes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/test/java/lesson4/PrimesTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/test/java/lesson4/PrimesTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +50,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="addressbook-web-tests" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="addressbook-web-tests" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -135,7 +142,7 @@
       <command value="WebDriverException" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.ContactModificationTests">
+  <component name="RunManager" selected="Gradle.PrimesTests.testPrimes">
     <configuration name="MyFirstProgram122" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MyFirstProgram122" />
       <module name="sandbox.main" />
@@ -143,12 +150,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PrimesTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/sandbox" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.ContactCreationTests&quot;" />
+        <option name="scriptParameters" value="--tests &quot;lesson4.PrimesTests&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -164,12 +171,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ContactModificationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PrimesTests.testNotPrimes" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/sandbox" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.ContactModificationTests&quot;" />
+        <option name="scriptParameters" value="--tests &quot;lesson4.PrimesTests.testNotPrimes&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -185,12 +192,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ContactModificationTests.modificationContactTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PrimesTests.testPrimes" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/sandbox" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.ContactModificationTests.modificationContactTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;lesson4.PrimesTests.testPrimes&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -206,44 +213,44 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GroupCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="addressbook-web-tests [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.GroupCreationTests&quot;" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GroupModificationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="addressbook-web-tests [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.GroupModificationTests&quot;" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
+            <option value="test" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -297,11 +304,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ContactModificationTests" />
-        <item itemvalue="Gradle.GroupCreationTests" />
-        <item itemvalue="Gradle.GroupModificationTests" />
-        <item itemvalue="Gradle.ContactModificationTests.modificationContactTest" />
-        <item itemvalue="Gradle.ContactCreationTests" />
+        <item itemvalue="Gradle.PrimesTests.testPrimes" />
+        <item itemvalue="Gradle.PrimesTests" />
+        <item itemvalue="Gradle.addressbook-web-tests [test]" />
+        <item itemvalue="Gradle.addressbook-web-tests [clean]" />
+        <item itemvalue="Gradle.PrimesTests.testNotPrimes" />
       </list>
     </recent_temporary>
   </component>
@@ -583,7 +590,28 @@
       <option name="project" value="LOCAL" />
       <updated>1614079032674</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="gitignor updated">
+      <created>1614079215796</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1614079215796</updated>
+    </task>
+    <task id="LOCAL-00040" summary="idea">
+      <created>1614079397003</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1614079397003</updated>
+    </task>
+    <task id="LOCAL-00041" summary="lesson4.1">
+      <created>1614080496251</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1614080496251</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -599,9 +627,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="group helper changes" />
-    <MESSAGE value="group helper added" />
-    <MESSAGE value="navigator helper changes" />
     <MESSAGE value="navigator helper added" />
     <MESSAGE value="HelperBase added" />
     <MESSAGE value="HelperBase changes" />
@@ -624,6 +649,9 @@
     <MESSAGE value="precondition added" />
     <MESSAGE value="preconditions for contact tests added" />
     <MESSAGE value="Primes added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primes added" />
+    <MESSAGE value="gitignor updated" />
+    <MESSAGE value="idea" />
+    <MESSAGE value="lesson4.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson4.1" />
   </component>
 </project>
