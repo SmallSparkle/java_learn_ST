@@ -63,8 +63,11 @@ public class ContactHelper extends HelperBase {
     returnToPage("home page");
   }
 
-
   public boolean isThereAContact(By locator) {
     return isElementPresent(locator);
+  }
+
+  public int getContactCount() {
+    return wd.findElements(By.xpath("(//input[@name='selected[]'])")).size();
   }
 }
