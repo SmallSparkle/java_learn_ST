@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.NoSuchElementException;
 
+import java.util.concurrent.TimeUnit;
+
 public class HelperBase {
   protected WebDriver wd;
 
@@ -38,6 +40,7 @@ public class HelperBase {
   public void returnToPage(String locator) {
     click(By.linkText(locator));
   }
+
 
 //  public boolean isAlertPresent() {
 //    try {

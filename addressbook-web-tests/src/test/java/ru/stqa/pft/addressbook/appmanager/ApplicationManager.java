@@ -35,7 +35,7 @@ public class ApplicationManager {
     } else if (browser.equals(IE)) {
       wd = new InternetExplorerDriver();
     }
-    wd.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+    wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
@@ -44,6 +44,8 @@ public class ApplicationManager {
     helper = new HelperBase(wd);
     sessionHelper.login("admin", "secret");
   }
+
+
 
   public void logout() {
     helper.click(By.linkText("Logout"));

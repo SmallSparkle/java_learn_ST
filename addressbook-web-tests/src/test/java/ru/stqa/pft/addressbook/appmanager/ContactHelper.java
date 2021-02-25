@@ -40,8 +40,9 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  public void selectContact(String locator) {
-    submit(locator);
+  public void selectContact(int index) {
+    wd.findElements(By.xpath("(//input[@name='selected[]'])")).get(index).click();
+
   }
 
   public void deleteSelectedContact(String locator) {
