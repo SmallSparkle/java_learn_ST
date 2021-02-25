@@ -41,6 +41,10 @@ public class HelperBase {
     click(By.linkText(locator));
   }
 
+  public void find(By locator){
+    wd.findElement(locator);
+    //By.cssSelector("div.msgbox")
+  }
 
 //  public boolean isAlertPresent() {
 //    try {

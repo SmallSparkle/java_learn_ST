@@ -24,6 +24,7 @@ public class ContactDeletionTests extends TestBase {
     app.getContactHelper().deleteSelectedContact("//input[@value='Delete']");
     app.getContactHelper().closeAlert();
     app.getNavigationHelper().goToHomePage();
+    app.getHelper().find(By.cssSelector("div.msgbox"));
     int after = app.getContactHelper().getContactCount();
     Assert.assertEquals(after, before - 1);
 
