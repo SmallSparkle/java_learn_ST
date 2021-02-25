@@ -67,5 +67,4 @@ public class ContactHelper extends HelperBase {
   public boolean isThereAContact(By locator) {
     return isElementPresent(locator);
   }
-//"(//input[@name='selected[]'])"
 }
