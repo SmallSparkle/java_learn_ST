@@ -58,8 +58,8 @@ public class GroupHelper extends HelperBase {
     returnToPage("group page");
   }
 
-  public boolean isThereAGroup(By locator) {
-    return isElementPresent(locator);
+  public boolean isThereAGroup() {
+    return isElementPresent(By.name("selected[]"));
   }
 
   public int getGroupCount() {
@@ -77,4 +77,5 @@ public class GroupHelper extends HelperBase {
     }
     return groups;
   }
+
 }

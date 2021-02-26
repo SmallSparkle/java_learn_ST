@@ -8,9 +8,9 @@ import ru.stqa.pft.addressbook.model.GroupData;
 
 public class ContactCreationTests extends TestBase {
   @Test
-  public void testUntitledTestCase() throws Exception {
+  public void testUntitledTestCase() {
     app.getNavigationHelper().goToGroupPage();
-    if (!app.getGroupHelper().isThereAGroup(By.name("selected[]"))) {
+    if (!app.getGroupHelper().isThereAGroup()) {
       app.getGroupHelper().createGroup(new GroupData("test1", null, null));
     }
     app.getNavigationHelper().goToHomePage();

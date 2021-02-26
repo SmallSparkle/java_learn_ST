@@ -13,8 +13,11 @@ public class ContactHelper extends HelperBase {
     super(wd);
   }
 
-  public void submit(String locator) {
-    click(By.xpath(locator));
+  public void update() {
+    click(By.xpath("(//input[@name='update'])[2]"));
+  }
+  public void submit() {
+    click(By.xpath("(//input[@name='submit'])[2]"));
   }
 
   public void fillContactForm(ContactData contactData, boolean creation) {
@@ -45,8 +48,8 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  public void deleteSelectedContact(String locator) {
-    click(By.xpath(locator));
+  public void deleteSelectedContact() {
+    click(By.xpath("//input[@value='Delete']"));
   }
 
   public void closeAlert() {
@@ -60,12 +63,12 @@ public class ContactHelper extends HelperBase {
   public void createContact(ContactData contact, boolean creation) {
     goToContactCreateForm("add new");
     fillContactForm(contact, creation);
-    submit("(//input[@name='submit'])[2]");
+    submit();
     returnToPage("home page");
   }
 
-  public boolean isThereAContact(By locator) {
-    return isElementPresent(locator);
+  public boolean isThereAContact() {
+    return isElementPresent(By.xpath("(//input[@name='selected[]'])"));
   }
 
   public int getContactCount() {

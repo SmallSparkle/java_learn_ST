@@ -11,20 +11,20 @@ public class ContactDeletionTests extends TestBase {
   @Test
   public void deletionContactTest() {
     app.getNavigationHelper().goToGroupPage();
-    if (!app.getGroupHelper().isThereAGroup(By.name("selected[]"))) {
+    if (!app.getGroupHelper().isThereAGroup()) {
       app.getGroupHelper().createGroup(new GroupData("test1", null, null));
     }
     app.getNavigationHelper().goToHomePage();
-    if (!app.getContactHelper().isThereAContact(By.xpath("(//input[@name='selected[]'])"))) {
+    if (!app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData("Anna", "Amina", "Bespalova", "Moscow Lenina 10", "4959880012", "9660001213", "some@some.mail", "some2@some.mail", "5", "May", "1987", "test notes"), true);
     }
     app.getNavigationHelper().goToHomePage();
     int before = app.getContactHelper().getContactCount();
     app.getContactHelper().selectContact(before - 1);
-    app.getContactHelper().deleteSelectedContact("//input[@value='Delete']");
+    app.getContactHelper().deleteSelectedContact();
     app.getContactHelper().closeAlert();
     app.getNavigationHelper().goToHomePage();
-    app.getHelper().find(By.cssSelector("div.msgbox"));
+    app.getHelper().find();
     int after = app.getContactHelper().getContactCount();
     Assert.assertEquals(after, before - 1);
 
