@@ -26,8 +26,22 @@ public class ContactData {
     this.bday = bday;
     this.bmonth = bmonth;
     this.byear = byear;
-    //this.addGroup = addGroup;
     this.notesText = notesText;
+  }
+
+  public ContactData(String name, String middlename) {
+    this.name = name;
+    this.middlename = middlename;
+    this.lastname = null;
+    this.address = null;
+    this.homePhone = null;
+    this.mobilePhone = null;
+    this.ferstEmail = null;
+    this.thirdEmail = null;
+    this.bday = null;
+    this.bmonth = null;
+    this.byear = null;
+    this.notesText = null;
   }
 
 //  public ContactData(String mobilePhone, String address) {
