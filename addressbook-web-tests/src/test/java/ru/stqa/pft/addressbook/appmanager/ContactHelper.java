@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -46,6 +47,12 @@ public class ContactHelper extends HelperBase {
   public void selectContact(int index) {
     wd.findElements(By.xpath("(//input[@name='selected[]'])")).get(index).click();
 
+  }
+  public void selectEditContact(int index){
+    wd.findElements(By.cssSelector("img[alt=\"Edit\"]")).get(index).click();
+//    "entry"
+//    id="maintable"
+//    class name="entry"
   }
 
   public void deleteSelectedContact() {
