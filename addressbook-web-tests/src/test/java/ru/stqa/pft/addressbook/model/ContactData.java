@@ -32,6 +32,21 @@ public class ContactData {
     this.byear = byear;
     this.notesText = notesText;
   }
+  public ContactData(String id, String name, String middlename, String lastname, String address, String homePhone, String mobilePhone, String ferstEmail, String thirdEmail, String bday, String bmonth, String byear, String notesText) {
+    this.id = id;
+    this.name = name;
+    this.middlename = middlename;
+    this.lastname = lastname;
+    this.address = address;
+    this.homePhone = homePhone;
+    this.mobilePhone = mobilePhone;
+    this.ferstEmail = ferstEmail;
+    this.thirdEmail = thirdEmail;
+    this.bday = bday;
+    this.bmonth = bmonth;
+    this.byear = byear;
+    this.notesText = notesText;
+  }
 
   public ContactData(String id, String name, String lastname) {
     this.id = id;
@@ -121,5 +136,9 @@ public class ContactData {
   @Override
   public int hashCode() {
     return Objects.hash(name);
+  }
+
+  public String getId() {
+    return id;
   }
 }
