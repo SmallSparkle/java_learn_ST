@@ -57,9 +57,6 @@ public class ContactHelper extends HelperBase {
 
   public void selectEditContact(int index) {
     wd.findElements(By.cssSelector("img[alt=\"Edit\"]")).get(index).click();
-//    "entry"
-//    id="maintable"
-//    class name="entry"
   }
 
   public void deleteSelectedContact() {
@@ -92,18 +89,14 @@ public class ContactHelper extends HelperBase {
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
-//    List<WebElement> elements2 = wd.findElements(By.cssSelector("tr.entry td[2]"));
-//    for (WebElement element2 : elements2) {
       for (WebElement element:elements) {
-        String name = element.getText();
-        ContactData contact = new ContactData(name);
+        List<WebElement> cols = element.findElements(By.tagName("td"));
+        String name = cols.get(2).getText();
+        String lastname = cols.get(1).getText();
+        String id = element.findElement(By.tagName("input")).getAttribute("value");
+        ContactData contact = new ContactData(id, name, lastname);
         contacts.add(contact);
       }
-//      String middlename = element2.getText();
-//      ContactData contact = new ContactData(null, middlename);
-//      contacts.add(contact);
-
-//    }
     return contacts;
   }
 }
