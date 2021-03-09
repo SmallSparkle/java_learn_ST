@@ -3,7 +3,7 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-  private final String id;
+  private int id;
   private final String name;
   private final String middlename;
   private final String lastname;
@@ -17,8 +17,21 @@ public class ContactData {
   private final String byear;
   private final String notesText;
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, lastname);
+  }
+
   public ContactData(String name, String middlename, String lastname, String address, String homePhone, String mobilePhone, String ferstEmail, String thirdEmail, String bday, String bmonth, String byear, String notesText) {
-    this.id = null;
+    this.id = 0;
     this.name = name;
     this.middlename = middlename;
     this.lastname = lastname;
@@ -32,7 +45,8 @@ public class ContactData {
     this.byear = byear;
     this.notesText = notesText;
   }
-  public ContactData(String id, String name, String middlename, String lastname, String address, String homePhone, String mobilePhone, String ferstEmail, String thirdEmail, String bday, String bmonth, String byear, String notesText) {
+
+  public ContactData(int id, String name, String middlename, String lastname, String address, String homePhone, String mobilePhone, String ferstEmail, String thirdEmail, String bday, String bmonth, String byear, String notesText) {
     this.id = id;
     this.name = name;
     this.middlename = middlename;
@@ -48,7 +62,7 @@ public class ContactData {
     this.notesText = notesText;
   }
 
-  public ContactData(String id, String name, String lastname) {
+  public ContactData(int id, String name, String lastname) {
     this.id = id;
     this.name = name;
     this.middlename = null;
@@ -125,20 +139,11 @@ public class ContactData {
             '}';
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ContactData that = (ContactData) o;
-    return Objects.equals(name, that.name);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(name);
-  }
-
-  public String getId() {
+  public int getId() {
     return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 }
