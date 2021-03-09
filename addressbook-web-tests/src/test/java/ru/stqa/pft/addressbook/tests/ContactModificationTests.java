@@ -23,7 +23,7 @@ public class ContactModificationTests extends TestBase {
     app.getNavigationHelper().goToHomePage();
     List<ContactData> before = app.getContactHelper().getContactList();
 //    int before = app.getContactHelper().getContactCount();
-    app.getContactHelper().selectEditContact(before - 1);
+    app.getContactHelper().selectEditContact(before.size() - 1);
     //изменить метод выбора контакта для редактирования
     //добавить новый с поиском по сиблингу - возможно
     app.getContactHelper().fillContactForm(new ContactData("Anna", "Amina", "Bespalova", "Moscow Lenina 25", "4959880012", "0001120003", "some@some.mail", "some2@some.mail", "5", "May", "1987", "test notes"), false);
