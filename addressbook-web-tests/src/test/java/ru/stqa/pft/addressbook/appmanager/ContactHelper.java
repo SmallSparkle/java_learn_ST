@@ -96,7 +96,7 @@ public class ContactHelper extends HelperBase {
 //    for (WebElement element2 : elements2) {
       for (WebElement element:elements) {
         String name = element.getText();
-        ContactData contact = new ContactData(name, null);
+        ContactData contact = new ContactData(name);
         contacts.add(contact);
       }
 //      String middlename = element2.getText();
