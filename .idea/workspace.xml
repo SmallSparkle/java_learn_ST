@@ -8,10 +8,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/ContactData.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/ContactData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactCreationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactCreationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactDeletionTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactDeletionTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactModificationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactModificationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/ContactData.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/ContactData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/GroupCreationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/GroupCreationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/GroupDeletionTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/GroupDeletionTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/GroupModificationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/GroupModificationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/TestBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/TestBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactDeletionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactDeletionTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactModificationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactModificationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupModificationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupModificationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/TestBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +136,9 @@
       <recent name="ru.stqa.pft.addressbook.appmanager" />
       <recent name="ru.stqa.pft.addressbook" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sandbox/src/test/java" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ru.packaje1.lesson1" />
     </key>
@@ -139,13 +150,34 @@
       <command value="WebDriverException" />
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.ContactModificationTests">
+  <component name="RunManager" selected="TestNG.GroupModificationTests.testGroupModification">
     <configuration name="MyFirstProgram122" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MyFirstProgram122" />
       <module name="sandbox.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="addressbook-web-tests [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="java_learn_ST" />
@@ -194,41 +226,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactCreationTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.addressbook.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.ContactCreationTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ContactCreationTests.testUntitledTestCase" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.addressbook.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.ContactCreationTests" />
-      <option name="METHOD_NAME" value="testUntitledTestCase" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ContactDeletionTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
@@ -263,7 +260,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactModificationTests.modificationContactTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="GroupModificationTests.testGroupModification" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
@@ -272,9 +269,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.ContactModificationTests" />
-      <option name="METHOD_NAME" value="modificationContactTest" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.GroupModificationTests" />
+      <option name="METHOD_NAME" value="testGroupModification" />
       <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ru.stqa.pft.addressbook.tests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.addressbook.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
       <properties />
       <listeners />
       <method v="2">
@@ -283,19 +296,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.MyFirstProgram122" />
-      <item itemvalue="TestNG.ContactCreationTests" />
       <item itemvalue="TestNG.ContactDeletionTests" />
       <item itemvalue="TestNG.ContactModificationTests" />
-      <item itemvalue="TestNG.ContactModificationTests.modificationContactTest" />
-      <item itemvalue="TestNG.ContactCreationTests.testUntitledTestCase" />
+      <item itemvalue="TestNG.ru.stqa.pft.addressbook.tests" />
+      <item itemvalue="Gradle.addressbook-web-tests [clean]" />
+      <item itemvalue="TestNG.GroupModificationTests.testGroupModification" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.GroupModificationTests.testGroupModification" />
+        <item itemvalue="TestNG.ru.stqa.pft.addressbook.tests" />
+        <item itemvalue="Gradle.addressbook-web-tests [clean]" />
         <item itemvalue="TestNG.ContactModificationTests" />
         <item itemvalue="TestNG.ContactDeletionTests" />
-        <item itemvalue="TestNG.ContactCreationTests.testUntitledTestCase" />
-        <item itemvalue="TestNG.ContactCreationTests" />
-        <item itemvalue="TestNG.ContactModificationTests.modificationContactTest" />
       </list>
     </recent_temporary>
   </component>
@@ -310,13 +323,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611921999794</updated>
-    </task>
-    <task id="LOCAL-00014" summary="HelperBase changes">
-      <created>1612714296532</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1612714296532</updated>
     </task>
     <task id="LOCAL-00015" summary="HelperBase added">
       <created>1612714310892</created>
@@ -654,7 +660,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615299660103</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="added sort by Id">
+      <created>1615300912921</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1615300912921</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -670,7 +683,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="check precondition added" />
     <MESSAGE value="precondition added" />
     <MESSAGE value="preconditions for contact tests added" />
     <MESSAGE value="Primes added" />
@@ -695,7 +707,19 @@
     <MESSAGE value="added id end redesigned getContactList method" />
     <MESSAGE value="added search maxID" />
     <MESSAGE value="added stream to contactCreationTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="added stream to contactCreationTest" />
+    <MESSAGE value="added sort by Id" />
+    <option name="LAST_COMMIT_MESSAGE" value="added sort by Id" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupModificationTests.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

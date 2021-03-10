@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class ContactCreationTests extends TestBase {
-  @Test
+  @Test (enabled = false)
   public void testUntitledTestCase() {
     app.getNavigationHelper().goToGroupPage();
     if (!app.getGroupHelper().isThereAGroup()) {

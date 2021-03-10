@@ -17,7 +17,7 @@ public class GroupHelper extends HelperBase {
     super(wd);
   }
 
-  public void returnToPage(String locator) {
+  public void returnToPage() {
     click(By.linkText("group page"));
   }
 
@@ -56,6 +56,14 @@ public class GroupHelper extends HelperBase {
     fillGroupForm(group);
     submitGroupCreation();
     returnToPage("group page");
+  }
+
+  public void modifyGroup(int index, GroupData group) {
+    selectGroup(index);
+    initGroupModification();
+    fillGroupForm(group);
+    submitGroupModification();
+    returnToPage();
   }
 
   public boolean isThereAGroup() {
