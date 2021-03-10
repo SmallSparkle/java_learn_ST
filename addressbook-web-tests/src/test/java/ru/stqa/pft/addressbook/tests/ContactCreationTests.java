@@ -23,7 +23,12 @@ public class ContactCreationTests extends TestBase {
   @Test
   public void testUntitledTestCase() {
     List<ContactData> before = app.contact().list();
-    ContactData contact = new ContactData("Anna", "Amina", "Bespalova", "Moscow Lenina 10", "4959880012", "0001120003", "some@some.mail", "some2@some.mail", "5", "May", "1987", "test notes");
+    ContactData contact = new ContactData()
+            .withName("Anna").withMiddlename("Amina").withLastname("Bespalova")
+            .withAddress("Moscow Lenina 10").withHomePhone("4959880012")
+            .withMobilePhone("9660001213").withFerstEmail("some@some.mail")
+            .withThirdEmail("some2@some.mail").withBday("5").withBmonth("May")
+            .withByear("1987").withNotesText("test notes");
     app.contact().createContact(contact, true);
     List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), before.size() + 1);
