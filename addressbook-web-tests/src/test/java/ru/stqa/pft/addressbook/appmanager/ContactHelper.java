@@ -98,7 +98,7 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.xpath("(//input[@name='selected[]'])")).size();
   }
 
-  public List<ContactData> List() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
     for (WebElement element : elements) {
