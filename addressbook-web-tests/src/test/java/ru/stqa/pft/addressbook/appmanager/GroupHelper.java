@@ -7,9 +7,6 @@ import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class GroupHelper extends HelperBase {
 
@@ -17,7 +14,7 @@ public class GroupHelper extends HelperBase {
     super(wd);
   }
 
-  public void returnToPage() {
+  public void returnToGroupPage() {
     click(By.linkText("group page"));
   }
 
@@ -63,8 +60,9 @@ public class GroupHelper extends HelperBase {
     initGroupModification();
     fillGroupForm(group);
     submitGroupModification();
-    returnToPage();
+    returnToGroupPage();
   }
+
 
   public boolean isThereAGroup() {
     return isElementPresent(By.name("selected[]"));
@@ -74,7 +72,7 @@ public class GroupHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public List<GroupData> getGroupList() {
+  public List<GroupData> List() {
     List<GroupData> groups = new ArrayList<GroupData>();
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
     for (WebElement element : elements) {

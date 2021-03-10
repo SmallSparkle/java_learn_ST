@@ -13,25 +13,25 @@ public class ContactModificationTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.getNavigationHelper().goToGroupPage();
-    if (!app.getGroupHelper().isThereAGroup()) {
-      app.getGroupHelper().createGroup(new GroupData("test1", null, null));
+    app.goTo().groupPage();
+    if (!app.group().isThereAGroup()) {
+      app.group().createGroup(new GroupData("test1", null, null));
     }
-    app.getNavigationHelper().goToHomePage();
-    if (!app.getContactHelper().isThereAContact()) {
-      app.getContactHelper().createContact(new ContactData("Anna", "Amina", "Bespalova", "Moscow Lenina 10", "4959880012", "9660001213", "some@some.mail", "some2@some.mail", "5", "May", "1987", "test notes"), true);
+    app.goTo().homePage();
+    if (!app.contact().isThereAContact()) {
+      app.contact().createContact(new ContactData("Anna", "Amina", "Bespalova", "Moscow Lenina 10", "4959880012", "9660001213", "some@some.mail", "some2@some.mail", "5", "May", "1987", "test notes"), true);
     }
-    app.getNavigationHelper().goToHomePage();
+    app.goTo().homePage();
   }
 
   @Test(enabled = false)
   public void modificationContactTest() {
-    List<ContactData> before = app.getContactHelper().getContactList();
+    List<ContactData> before = app.contact().List();
     int index = before.size() - 1;
     ContactData contact = new ContactData(before.get(index).getId(), "Anna", "Amina", "Bespalova", "Moscow Lenina 25", "4959880012", "0001120003", "some@some.mail", "some2@some.mail", "5", "May", "1987", "test notes");
-    app.getContactHelper().modifyContact(index, contact);
-    app.getNavigationHelper().goToHomePage();
-    List<ContactData> after = app.getContactHelper().getContactList();
+    app.contact().modifyContact(index, contact);
+    app.goTo().homePage();
+    List<ContactData> after = app.contact().List();
     Assert.assertEquals(before.size(), after.size());
 
     before.remove(index);

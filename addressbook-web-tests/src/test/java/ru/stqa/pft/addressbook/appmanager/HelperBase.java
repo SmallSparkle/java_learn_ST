@@ -40,6 +40,7 @@ public class HelperBase {
 
   public void returnToPage(String locator) {
     click(By.linkText(locator));
+    //"group page"
   }
 
   public void find() {
