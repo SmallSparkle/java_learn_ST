@@ -40,12 +40,23 @@ public class GroupHelper extends HelperBase {
     returnToGroupPage();
   }
 
+  public void delete(GroupData group) {
+    selectGroupById(group.getId());
+    deleteSelectedGroups();
+    returnToGroupPage();
+
+  }
+
   public void deleteSelectedGroups() {
     click(By.name("delete"));
   }
 
   public void selectGroup(int index) {
     wd.findElements(By.name("selected[]")).get(index).click();
+  }
+
+  public void selectGroupById(int id) {
+    wd.findElement(By.cssSelector("input[name='" + id + "']")).click();
   }
 
   public void initGroupModification() {
