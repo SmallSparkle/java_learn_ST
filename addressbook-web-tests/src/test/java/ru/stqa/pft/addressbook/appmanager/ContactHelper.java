@@ -90,14 +90,6 @@ public class ContactHelper extends HelperBase {
     closeAlert();
   }
 
-  public boolean isThereAContact() {
-    return isElementPresent(By.xpath("(//input[@name='selected[]'])"));
-  }
-
-  public int getContactCount() {
-    return wd.findElements(By.xpath("(//input[@name='selected[]'])")).size();
-  }
-
   public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
@@ -106,8 +98,7 @@ public class ContactHelper extends HelperBase {
       String name = cols.get(2).getText();
       String lastname = cols.get(1).getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      ContactData contact = new ContactData(id, name, lastname);
-      contacts.add(contact);
+      contacts.add(new ContactData().withId(id).withName(name).withLastname(lastname));
     }
     return contacts;
   }
