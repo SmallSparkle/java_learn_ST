@@ -4,65 +4,69 @@ import java.util.Objects;
 
 public class ContactData {
   private int id;
-  private final String name;
-  private final String middlename;
-  private final String lastname;
-  private final String address;
-  private final String homePhone;
-  private final String mobilePhone;
-  private final String ferstEmail;
-  private final String thirdEmail;
-  private final String bday;
-  private final String bmonth;
-  private final String byear;
-  private final String notesText;
+  private String name;
+  private String middlename;
+  private String lastname;
+  private String address;
+  private String homePhone;
+  private String mobilePhone;
+  private String ferstEmail;
+  private String thirdEmail;
+  private String bday;
+  private String bmonth;
+  private String byear;
+  private String notesText;
 
-  public ContactData(String name, String middlename, String lastname, String address, String homePhone, String mobilePhone, String ferstEmail, String thirdEmail, String bday, String bmonth, String byear, String notesText) {
-    this.id = Integer.MAX_VALUE;
-    this.name = name;
-    this.middlename = middlename;
-    this.lastname = lastname;
-    this.address = address;
-    this.homePhone = homePhone;
-    this.mobilePhone = mobilePhone;
-    this.ferstEmail = ferstEmail;
-    this.thirdEmail = thirdEmail;
-    this.bday = bday;
-    this.bmonth = bmonth;
-    this.byear = byear;
-    this.notesText = notesText;
-  }
+//  public ContactData(String name, String middlename, String lastname, String address, String homePhone, String mobilePhone, String ferstEmail, String thirdEmail, String bday, String bmonth, String byear, String notesText) {
+//    this.id = Integer.MAX_VALUE;
+//    this.name = name;
+//    this.middlename = middlename;
+//    this.lastname = lastname;
+//    this.address = address;
+//    this.homePhone = homePhone;
+//    this.mobilePhone = mobilePhone;
+//    this.ferstEmail = ferstEmail;
+//    this.thirdEmail = thirdEmail;
+//    this.bday = bday;
+//    this.bmonth = bmonth;
+//    this.byear = byear;
+//    this.notesText = notesText;
+//  }
+//
+//  public ContactData(int id, String name, String middlename, String lastname, String address, String homePhone, String mobilePhone, String ferstEmail, String thirdEmail, String bday, String bmonth, String byear, String notesText) {
+//    this.id = id;
+//    this.name = name;
+//    this.middlename = middlename;
+//    this.lastname = lastname;
+//    this.address = address;
+//    this.homePhone = homePhone;
+//    this.mobilePhone = mobilePhone;
+//    this.ferstEmail = ferstEmail;
+//    this.thirdEmail = thirdEmail;
+//    this.bday = bday;
+//    this.bmonth = bmonth;
+//    this.byear = byear;
+//    this.notesText = notesText;
+//  }
+//
+//  public ContactData(int id, String name, String lastname) {
+//    this.id = id;
+//    this.name = name;
+//    this.middlename = null;
+//    this.lastname = lastname;
+//    this.address = null;
+//    this.homePhone = null;
+//    this.mobilePhone = null;
+//    this.ferstEmail = null;
+//    this.thirdEmail = null;
+//    this.bday = null;
+//    this.bmonth = null;
+//    this.byear = null;
+//    this.notesText = null;
+//  }
 
-  public ContactData(int id, String name, String middlename, String lastname, String address, String homePhone, String mobilePhone, String ferstEmail, String thirdEmail, String bday, String bmonth, String byear, String notesText) {
-    this.id = id;
-    this.name = name;
-    this.middlename = middlename;
-    this.lastname = lastname;
-    this.address = address;
-    this.homePhone = homePhone;
-    this.mobilePhone = mobilePhone;
-    this.ferstEmail = ferstEmail;
-    this.thirdEmail = thirdEmail;
-    this.bday = bday;
-    this.bmonth = bmonth;
-    this.byear = byear;
-    this.notesText = notesText;
-  }
-
-  public ContactData(int id, String name, String lastname) {
-    this.id = id;
-    this.name = name;
-    this.middlename = null;
-    this.lastname = lastname;
-    this.address = null;
-    this.homePhone = null;
-    this.mobilePhone = null;
-    this.ferstEmail = null;
-    this.thirdEmail = null;
-    this.bday = null;
-    this.bmonth = null;
-    this.byear = null;
-    this.notesText = null;
+  public int getId() {
+    return id;
   }
 
   public String getName() {
@@ -113,6 +117,71 @@ public class ContactData {
     return notesText;
   }
 
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+  }
+
+  public ContactData withName(String name) {
+    this.name = name;
+    return this;
+  }
+
+  public ContactData withMiddlename(String middlename) {
+    this.middlename = middlename;
+    return this;
+  }
+
+  public ContactData withLastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public ContactData withHomePhone(String homePhone) {
+    this.homePhone = homePhone;
+    return this;
+  }
+
+  public ContactData withMobilePhone(String mobilePhone) {
+    this.mobilePhone = mobilePhone;
+    return this;
+  }
+
+  public ContactData withFerstEmail(String ferstEmail) {
+    this.ferstEmail = ferstEmail;
+    return this;
+  }
+
+  public ContactData withThirdEmail(String thirdEmail) {
+    this.thirdEmail = thirdEmail;
+    return this;
+  }
+
+  public ContactData withBday(String bday) {
+    this.bday = bday;
+    return this;
+  }
+
+  public ContactData withBmonth(String bmonth) {
+    this.bmonth = bmonth;
+    return this;
+  }
+
+  public ContactData withByear(String byear) {
+    this.byear = byear;
+    return this;
+  }
+
+  public ContactData withNotesText(String notesText) {
+    this.notesText = notesText;
+    return this;
+  }
+
   @Override
   public String toString() {
     return "ContactData{" +
@@ -134,11 +203,5 @@ public class ContactData {
     return Objects.hash(name, lastname);
   }
 
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
 }
+
