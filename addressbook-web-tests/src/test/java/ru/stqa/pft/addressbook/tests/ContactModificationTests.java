@@ -29,17 +29,15 @@ public class ContactModificationTests extends TestBase {
     app.goTo().homePage();
   }
 
-  @Test(enabled = false)
+  @Test
   public void modificationContactTest() {
     List<ContactData> before = app.contact().list();
     int index = before.size() - 1;
     ContactData contact = new ContactData()
             .withId(before.get(index).getId())
-            .withName("Anna").withMiddlename("Amina").withLastname("Bespalova")
-            .withAddress("Moscow Lenina 10").withHomePhone("4959880012")
-            .withMobilePhone("9660001213").withFerstEmail("some@some.mail")
-            .withThirdEmail("some2@some.mail").withBday("5").withBmonth("May")
-            .withByear("1987").withNotesText("test notes");
+            .withName("Anna").withLastname("Kortikova")
+            .withAddress("Vien 1030 Landstrasse 40").withMobilePhone("10106001213")
+            .withNotesText("Lastname and address have changed");
     app.contact().modifyContact(index, contact);
     app.goTo().homePage();
     List<ContactData> after = app.contact().list();

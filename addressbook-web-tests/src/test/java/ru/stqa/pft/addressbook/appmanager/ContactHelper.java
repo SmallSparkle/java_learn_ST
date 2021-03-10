@@ -50,6 +50,13 @@ public class ContactHelper extends HelperBase {
 
   }
 
+  public void fillModifyForm(ContactData contactData, boolean creation){
+    type(By.name("lastname"), contactData.getLastname());
+    type(By.name("address"), contactData.getAddress());
+    type(By.name("mobile"), contactData.getMobilePhone());
+    type(By.name("notes"), contactData.getNotesText());
+  }
+
   public void selectContact(int index) {
     wd.findElements(By.xpath("(//input[@name='selected[]'])")).get(index).click();
 
@@ -80,7 +87,7 @@ public class ContactHelper extends HelperBase {
 
   public void modifyContact(int index, ContactData contact) {
     selectEditContact(index);
-    fillContactForm(contact, false);
+    fillModifyForm(contact, false);
     update();
   }
 
