@@ -56,7 +56,7 @@ public class GroupHelper extends HelperBase {
   }
 
   public void selectGroupById(int id) {
-    wd.findElement(By.cssSelector("input[name='" + id + "']")).click();
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
   public void initGroupModification() {
@@ -74,8 +74,8 @@ public class GroupHelper extends HelperBase {
     returnToPage("group page");
   }
 
-  public void modifyGroup(int index, GroupData group) {
-    selectGroup(index);
+  public void modifyGroup(GroupData group) {
+    selectGroupById(group.getId());
     initGroupModification();
     fillGroupForm(group);
     submitGroupModification();
