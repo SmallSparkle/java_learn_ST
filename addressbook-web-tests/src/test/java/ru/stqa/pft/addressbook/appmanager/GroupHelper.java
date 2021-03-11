@@ -34,12 +34,6 @@ public class GroupHelper extends HelperBase {
     click(By.name("new"));
   }
 
-  public void delete(int index) {
-    selectGroup(index);
-    deleteSelectedGroups();
-    returnToGroupPage();
-  }
-
   public void delete(GroupData group) {
     selectGroupById(group.getId());
     deleteSelectedGroups();

@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-import java.util.Comparator;
-import java.util.List;
 import java.util.Set;
 
 public class GroupModificationTests extends TestBase {
@@ -24,7 +22,6 @@ public class GroupModificationTests extends TestBase {
 
     Set<GroupData> before = app.group().all();
     GroupData modifiedGroup = before.iterator().next();
-    int index = before.size() - 1;
     GroupData group = new GroupData()
             .withId(modifiedGroup.getId())
             .withName("modification")

@@ -21,20 +21,6 @@ public class GroupData {
     return Objects.hash(id, name);
   }
 
-//  public GroupData(int id, String name, String header, String footer) {
-//    this.id = id;
-//    this.name = name;
-//    this.header = header;
-//    this.footer = footer;
-//  }
-//
-//  public GroupData(String name, String header, String footer) {
-//    this.id = Integer.MAX_VALUE;
-//    this.name = name;
-//    this.header = header;
-//    this.footer = footer;
-//  }
-
   public String getName() {
     return name;
   }
@@ -65,7 +51,6 @@ public class GroupData {
   public int getId() {
     return id;
   }
-
 
   public GroupData withId(int id) {
     this.id = id;
