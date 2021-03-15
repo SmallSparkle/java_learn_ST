@@ -19,7 +19,7 @@ public class GroupCreationTests extends TestBase {
     assertThat(after.size(), equalTo(before.size() + 1));
 
     assertThat(after, equalTo(
-            group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt())));
+            before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
   }
 }
  
