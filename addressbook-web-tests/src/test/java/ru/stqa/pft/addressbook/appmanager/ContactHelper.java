@@ -8,7 +8,9 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class ContactHelper extends HelperBase {
@@ -48,7 +50,7 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  public void fillModifyForm(ContactData contactData, boolean creation){
+  public void fillModifyForm(ContactData contactData, boolean creation) {
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
     type(By.name("mobile"), contactData.getMobilePhone());
@@ -57,6 +59,10 @@ public class ContactHelper extends HelperBase {
 
   public void selectContact(int index) {
     wd.findElements(By.xpath("(//input[@name='selected[]'])")).get(index).click();
+  }
+
+  public void selectContactById(int id) {
+    wd.findElement(By.cssSelector("input[id='" + id + "']")).click();
 
   }
 
@@ -95,8 +101,27 @@ public class ContactHelper extends HelperBase {
     closeAlert();
   }
 
+  public void deleteContact(ContactData contact) {
+    selectContactById(contact.getId());
+    deleteSelectedContact();
+    closeAlert();
+  }
+
   public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();
+    List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+    for (WebElement element : elements) {
+      List<WebElement> cols = element.findElements(By.tagName("td"));
+      String name = cols.get(2).getText();
+      String lastname = cols.get(1).getText();
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+      contacts.add(new ContactData().withId(id).withName(name).withLastname(lastname));
+    }
+    return contacts;
+  }
+
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<>();
     List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
     for (WebElement element : elements) {
       List<WebElement> cols = element.findElements(By.tagName("td"));
