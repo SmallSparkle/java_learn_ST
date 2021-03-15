@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="31576632-adc1-44ef-a525-859e821c1d8b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/GroupHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/GroupHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactCreationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactCreationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactDeletionTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactDeletionTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactCreationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactDeletionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactDeletionTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactModificationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactModificationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +138,7 @@
       <command value="WebDriverException" />
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.ContactDeletionTests.deletionContactTest">
+  <component name="RunManager" selected="TestNG.ru.stqa.pft.addressbook.tests">
     <configuration name="MyFirstProgram122" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MyFirstProgram122" />
       <module name="sandbox.main" />
@@ -234,24 +229,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupCreationTests.testGroupCreation" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.addressbook.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.GroupCreationTests" />
-      <option name="METHOD_NAME" value="testGroupCreation" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GroupDeletionTests.deletionsGroupTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
@@ -288,21 +265,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ru.stqa.pft.addressbook.tests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.addressbook.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.MyFirstProgram122" />
-      <item itemvalue="TestNG.GroupCreationTests.testGroupCreation" />
       <item itemvalue="TestNG.GroupDeletionTests.deletionsGroupTest" />
       <item itemvalue="TestNG.GroupModificationTests.testGroupModification" />
       <item itemvalue="TestNG.ContactCreationTests.testUntitledTestCase" />
       <item itemvalue="TestNG.ContactDeletionTests.deletionContactTest" />
+      <item itemvalue="TestNG.ru.stqa.pft.addressbook.tests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.ru.stqa.pft.addressbook.tests" />
         <item itemvalue="TestNG.ContactDeletionTests.deletionContactTest" />
         <item itemvalue="TestNG.ContactCreationTests.testUntitledTestCase" />
         <item itemvalue="TestNG.GroupModificationTests.testGroupModification" />
         <item itemvalue="TestNG.GroupDeletionTests.deletionsGroupTest" />
-        <item itemvalue="TestNG.GroupCreationTests.testGroupCreation" />
       </list>
     </recent_temporary>
   </component>
@@ -317,20 +310,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611921999794</updated>
-    </task>
-    <task id="LOCAL-00039" summary="gitignor updated">
-      <created>1614079215796</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1614079215796</updated>
-    </task>
-    <task id="LOCAL-00040" summary="idea">
-      <created>1614079397003</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1614079397003</updated>
     </task>
     <task id="LOCAL-00041" summary="lesson4.1">
       <created>1614080496251</created>
@@ -661,7 +640,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615843191924</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="added decorator to contact deletion test">
+      <created>1615843436761</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1615843436761</updated>
+    </task>
+    <task id="LOCAL-00089" summary="added decorator to contact modification test">
+      <created>1615843666416</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1615843666416</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,8 +670,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactored GroupModificationTest" />
-    <MESSAGE value="refactored group test" />
     <MESSAGE value="refactored contact tests" />
     <MESSAGE value="refactored methods names" />
     <MESSAGE value="refactored methods names and checks in BeforeMethod" />
@@ -702,7 +693,9 @@
     <MESSAGE value="nullPointerException  added decorator" />
     <MESSAGE value="added decorator to group's tests" />
     <MESSAGE value="added decorator to contact creation test" />
-    <option name="LAST_COMMIT_MESSAGE" value="added decorator to contact creation test" />
+    <MESSAGE value="added decorator to contact deletion test" />
+    <MESSAGE value="added decorator to contact modification test" />
+    <option name="LAST_COMMIT_MESSAGE" value="added decorator to contact modification test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
