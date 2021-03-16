@@ -41,9 +41,9 @@ public class ContactModificationTests extends TestBase {
             .withNotesText("Lastname and address have changed");
     app.contact().modifyContact(contact);
     app.goTo().homePage();
-    Contacts after = app.contact().all();
-    assertEquals(before.size(), after.size());
 
+    assertEquals(app.contact().count(), before.size());
+    Contacts after = app.contact().all();
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
 
   }

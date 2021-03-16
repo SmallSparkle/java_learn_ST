@@ -31,9 +31,9 @@ public class ContactCreationTests extends TestBase {
             .withThirdEmail("some2@some.mail").withBday("5").withBmonth("May")
             .withByear("1987").withNotesText("test notes");
     app.contact().createContact(contact, true);
-    Contacts after = app.contact().all();
-    assertEquals(after.size(), before.size() + 1);
 
+    assertEquals(app.contact().count(), before.size() + 1);
+    Contacts after = app.contact().all();
     assertThat(after, equalTo(before.withAdded(
             contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
 

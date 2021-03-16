@@ -61,8 +61,8 @@ public class ContactHelper extends HelperBase {
     type(By.name("notes"), contactData.getNotesText());
   }
 
-  public void selectContact(int index) {
-    wd.findElements(By.xpath("(//input[@name='selected[]'])")).get(index).click();
+  public int count() {
+    return wd.findElements(By.xpath("(//input[@name='selected[]'])")).size();
   }
 
   public void selectContactById(int id) {
