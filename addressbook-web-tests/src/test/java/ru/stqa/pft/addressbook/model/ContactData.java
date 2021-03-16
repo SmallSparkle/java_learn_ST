@@ -17,53 +17,9 @@ public class ContactData {
   private String byear;
   private String notesText;
 
-//  public ContactData(String name, String middlename, String lastname, String address, String homePhone, String mobilePhone, String ferstEmail, String thirdEmail, String bday, String bmonth, String byear, String notesText) {
-//    this.id = Integer.MAX_VALUE;
-//    this.name = name;
-//    this.middlename = middlename;
-//    this.lastname = lastname;
-//    this.address = address;
-//    this.homePhone = homePhone;
-//    this.mobilePhone = mobilePhone;
-//    this.ferstEmail = ferstEmail;
-//    this.thirdEmail = thirdEmail;
-//    this.bday = bday;
-//    this.bmonth = bmonth;
-//    this.byear = byear;
-//    this.notesText = notesText;
-//  }
-//
-//  public ContactData(int id, String name, String middlename, String lastname, String address, String homePhone, String mobilePhone, String ferstEmail, String thirdEmail, String bday, String bmonth, String byear, String notesText) {
-//    this.id = id;
-//    this.name = name;
-//    this.middlename = middlename;
-//    this.lastname = lastname;
-//    this.address = address;
-//    this.homePhone = homePhone;
-//    this.mobilePhone = mobilePhone;
-//    this.ferstEmail = ferstEmail;
-//    this.thirdEmail = thirdEmail;
-//    this.bday = bday;
-//    this.bmonth = bmonth;
-//    this.byear = byear;
-//    this.notesText = notesText;
-//  }
-//
-//  public ContactData(int id, String name, String lastname) {
-//    this.id = id;
-//    this.name = name;
-//    this.middlename = null;
-//    this.lastname = lastname;
-//    this.address = null;
-//    this.homePhone = null;
-//    this.mobilePhone = null;
-//    this.ferstEmail = null;
-//    this.thirdEmail = null;
-//    this.bday = null;
-//    this.bmonth = null;
-//    this.byear = null;
-//    this.notesText = null;
-//  }
+  private String allPhones;
+  private String allEmails;
+
 
   @Override
   public boolean equals(Object o) {
@@ -130,6 +86,14 @@ public class ContactData {
     return notesText;
   }
 
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public String getallEmails() {
+    return allEmails;
+  }
+
   public ContactData withId(int id) {
     this.id = id;
     return this;
@@ -192,6 +156,16 @@ public class ContactData {
 
   public ContactData withNotesText(String notesText) {
     this.notesText = notesText;
+    return this;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
     return this;
   }
 
