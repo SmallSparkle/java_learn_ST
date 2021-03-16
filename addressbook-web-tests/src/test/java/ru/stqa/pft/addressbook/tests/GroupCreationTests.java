@@ -29,7 +29,7 @@ public class GroupCreationTests extends TestBase {
     GroupData group = new GroupData().withName("BadName'");
     app.group().createGroup(group);
 
-    assertThat(app.group().count(), equalTo(before));
+    assertThat(app.group().count(), equalTo(before.size()));
     Groups after = app.group().all();
     assertThat(after.size(), equalTo(before.size()));
   }
