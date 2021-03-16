@@ -119,9 +119,22 @@ public class ContactHelper extends HelperBase {
       List<WebElement> cols = element.findElements(By.tagName("td"));
       String name = cols.get(2).getText();
       String lastname = cols.get(1).getText();
+      String[] phones = cols.get(5).getText().split("\n");
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      contactCache.add(new ContactData().withId(id).withName(name).withLastname(lastname));
+      contactCache.add(new ContactData().withId(id).withName(name).withLastname(lastname)
+              .withHomePhone(phones[0]).withMobilePhone(phones[1]));
     }
     return new Contacts(contactCache);
+  }
+
+  public ContactData infoFromEditForm(ContactData contact) {
+    selectEditContactById(contact.getId());
+    String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+    String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+    String home = wd.findElement(By.name("home")).getAttribute("value");
+    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+    wd.navigate().back();
+    return new ContactData().withId(contact.getId()).withName(firstname).withLastname(lastname)
+            .withHomePhone(home).withMobilePhone(mobile);
   }
 }
