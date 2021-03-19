@@ -11,7 +11,10 @@ public class ContactData {
   private String address;
   private String homePhone;
   private String mobilePhone;
+  private String workPhone;
+  private String secondHomePhone;
   private String ferstEmail;
+  private String secondEmail;
   private String thirdEmail;
   private String bday;
   private String bmonth;
@@ -64,8 +67,20 @@ public class ContactData {
     return mobilePhone;
   }
 
+  public String getSecondHomePhone() {
+    return secondHomePhone;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
+  }
+
   public String getFerstEmail() {
     return ferstEmail;
+  }
+
+  public String getSecondEmail() {
+    return secondEmail;
   }
 
   public String getThirdEmail() {
@@ -135,8 +150,23 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withSecondHomePhone(String secondHomePhone) {
+    this.secondHomePhone = secondHomePhone;
+    return this;
+  }
+
+  public ContactData withWorkPhone(String workPhone) {
+    this.workPhone = workPhone;
+    return this;
+  }
+
   public ContactData withFerstEmail(String ferstEmail) {
     this.ferstEmail = ferstEmail;
+    return this;
+  }
+
+  public ContactData withSecondEmail(String secondEmail) {
+    this.secondEmail = secondEmail;
     return this;
   }
 
