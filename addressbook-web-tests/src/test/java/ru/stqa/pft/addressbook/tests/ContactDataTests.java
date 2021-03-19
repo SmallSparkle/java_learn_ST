@@ -43,14 +43,14 @@ public class ContactDataTests extends TestBase {
   }
 
   private String mergePhones(ContactData contact) {
-    return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone())
+    return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone(), contact.getSecondHomePhone())
             .stream().filter((s) -> ! s.equals(""))
             .map(ContactDataTests::cleaned)
             .collect(Collectors.joining("\n"));
   }
 
   private String mergeEmails(ContactData contact){
-    return Arrays.asList(contact.getFerstEmail(), contact.getThirdEmail())
+    return Arrays.asList(contact.getFerstEmail(), contact.getSecondEmail(), contact.getThirdEmail())
             .stream().filter((s) -> ! s.equals(""))
             .map(ContactDataTests::cleanedEmails)
             .collect(Collectors.joining("\n"));
