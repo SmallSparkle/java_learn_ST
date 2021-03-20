@@ -1,6 +1,8 @@
 package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.JsonAdapter;
+import ru.stqa.pft.addressbook.generators.FileJsonAdapter;
 
 import java.io.File;
 import java.util.Objects;
@@ -38,6 +40,7 @@ public class ContactData {
   private String allPhones;
   private String allEmails;
   @Expose
+  @JsonAdapter(FileJsonAdapter.class)
   private File photo;
 
 
