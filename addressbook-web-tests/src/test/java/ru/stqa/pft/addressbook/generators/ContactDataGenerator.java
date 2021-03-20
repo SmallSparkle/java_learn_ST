@@ -53,7 +53,10 @@ public class ContactDataGenerator {
   }
 
   private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
-    Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+    Gson gson = new GsonBuilder().setPrettyPrinting()
+            .excludeFieldsWithoutExposeAnnotation()
+            .registerTypeAdapter(File.class, new FileSerializer())
+            .create();
     String json = gson.toJson(contacts);
     Writer writer = new FileWriter(file);
     writer.write(json);
@@ -72,11 +75,13 @@ public class ContactDataGenerator {
   private void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
     Writer writer = new FileWriter(file);
     for (ContactData contact : contacts) {
-      writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;\n", contact.getName(), contact.getMiddlename(),
-              contact.getLastname(), contact.getAddress(), contact.getHomePhone(), contact.getMobilePhone(),
+      writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;\n", contact.getName(), contact.getMiddlename(),
+              contact.getLastname(), contact.getPhoto().getPath(), contact.getAddress(), contact.getHomePhone(), contact.getMobilePhone(),
               contact.getFerstEmail(), contact.getThirdEmail(), contact.getBday(), contact.getBmonth(),
               contact.getByear(), contact.getNotesText()));
+      System.out.println(contact.getPhoto().getPath());
     }
+
     writer.close();
   }
 
@@ -85,6 +90,7 @@ public class ContactDataGenerator {
     for (int i = 0; i < count; i++) {
       contacts.add(new ContactData()
               .withName("Anna").withMiddlename("Amina").withLastname("Bespalova")
+              .withPhoto(new File("src/test/resources/asd.jpg"))
               .withAddress("Moscow Lenina 10").withHomePhone("4959880012")
               .withMobilePhone("9660001213").withFerstEmail("some@some.mail")
               .withThirdEmail("some2@some.mail").withBday("5").withBmonth("May")

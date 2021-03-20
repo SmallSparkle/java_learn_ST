@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="31576632-adc1-44ef-a525-859e821c1d8b" name="Default Changelist" comment="added phones end email to ContactDataTests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/GroupDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/GroupDataGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/GroupData.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/GroupData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/ContactDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/ContactDataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/ContactData.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/ContactData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactCreationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/out/test/classes/ru/packaje1/lesson1/PointTests.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/out/test/classes/ru/packaje1/lesson1/SquareTests.class" beforeDir="false" />
     </list>
@@ -126,7 +125,22 @@
       <command value="gradle dependencies" />
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.GroupCreationTests">
+  <component name="RunManager" selected="Application.ContactDataGenerator">
+    <configuration name="ContactDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.generators.ContactDataGenerator" />
+      <module name="addressbook-web-tests.test" />
+      <option name="PROGRAM_PARAMETERS" value="-c 2 -d json -f src/test/resources/contacts.json" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/addressbook-web-tests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.addressbook.generators.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -164,27 +178,6 @@
           </list>
         </option>
         <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="sandbox [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/sandbox" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
       </ExternalSystemSettings>
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
@@ -277,9 +270,9 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ContactDataGenerator" />
       <item itemvalue="Application.MyFirstProgram122" />
       <item itemvalue="Application.GroupDataGenerator" />
-      <item itemvalue="Gradle.sandbox [build]" />
       <item itemvalue="Gradle.sandbox [dependencies]" />
       <item itemvalue="Gradle.addressbook-web-tests [dependencies]" />
       <item itemvalue="TestNG.GroupCreationTests" />
@@ -290,7 +283,6 @@
         <item itemvalue="Application.GroupDataGenerator" />
         <item itemvalue="Gradle.addressbook-web-tests [dependencies]" />
         <item itemvalue="Gradle.sandbox [dependencies]" />
-        <item itemvalue="Gradle.sandbox [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -305,27 +297,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611921999794</updated>
-    </task>
-    <task id="LOCAL-00055" summary="fixed modificationContactTest">
-      <created>1615278786180</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1615278786181</updated>
-    </task>
-    <task id="LOCAL-00056" summary="added List to contact tests">
-      <created>1615279113288</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1615279113288</updated>
-    </task>
-    <task id="LOCAL-00057" summary="added List.sise() tests">
-      <created>1615286069714</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1615286069714</updated>
     </task>
     <task id="LOCAL-00058" summary="added equals method">
       <created>1615287996109</created>
@@ -649,7 +620,28 @@
       <option name="project" value="LOCAL" />
       <updated>1616184431082</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="added json generator">
+      <created>1616188778965</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1616188778966</updated>
+    </task>
+    <task id="LOCAL-00105" summary="added writer for contacts">
+      <created>1616190270677</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1616190270677</updated>
+    </task>
+    <task id="LOCAL-00106" summary="added phones end email to ContactDataTests">
+      <created>1616190316392</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1616190316392</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -665,8 +657,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added Set to group's tests" />
-    <MESSAGE value="added id select to contact creation and deletion tests" />
     <MESSAGE value="added id selection to contact creation and deletion tests" />
     <MESSAGE value="added id selection to contact modification test" />
     <MESSAGE value="optimized imports in contact tests" />
@@ -689,6 +679,8 @@
     <MESSAGE value="added data provider to GroupCreationTests" />
     <MESSAGE value="added xml end csv reader end writer" />
     <MESSAGE value="added phones and email to ContactData" />
+    <MESSAGE value="added json generator" />
+    <MESSAGE value="added writer for contacts" />
     <MESSAGE value="added phones end email to ContactDataTests" />
     <option name="LAST_COMMIT_MESSAGE" value="added phones end email to ContactDataTests" />
   </component>

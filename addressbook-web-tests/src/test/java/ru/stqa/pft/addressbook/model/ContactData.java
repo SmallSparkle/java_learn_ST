@@ -37,6 +37,7 @@ public class ContactData {
 
   private String allPhones;
   private String allEmails;
+  @Expose
   private File photo;
 
 
@@ -222,6 +223,10 @@ public class ContactData {
   public ContactData withPhoto(File photo) {
     this.photo = photo;
     return this;
+  }
+
+  public String withPhoto(String photoPath) {
+    return photoPath;
   }
 
   @Override
