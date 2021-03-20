@@ -35,29 +35,22 @@ public class ContactCreationTests extends TestBase {
 
   @DataProvider
   public Iterator<Object[]> validContactsFromJson() throws IOException {
-    List<Object[]> list = new ArrayList<Object[]>();
-    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")));
-    String json = "";
-    String line = reader.readLine();
-    while (line != null) {
-      json += line;
-      line = reader.readLine();
+    try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")))) {
+      String json = "";
+      String line = reader.readLine();
+      while (line != null) {
+        json += line;
+        line = reader.readLine();
+      }
+      Gson gson = new Gson();
+      List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>() {}.getType());//List<ContactData>.class
+      return contacts.stream().map((c) -> new Object[]{c}).collect(Collectors.toList()).iterator();
     }
-    Gson gson = new Gson();
-    List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>() {}.getType());//List<ContactData>.class
-    return contacts.stream().map((c) -> new Object[]{c}).collect(Collectors.toList()).iterator();
   }
 
   @Test (dataProvider = "validContactsFromJson")
   public void testUntitledTestCase(ContactData contact) {
     Contacts before = app.contact().all();
-//    File photo = new File("src/test/resources/asd. jpg");
-//    ContactData contact = new ContactData()
-//            .withName("Anna").withMiddlename("Amina").withLastname("Bespalova").withPhoto(photo)
-//            .withAddress("Moscow Lenina 10").withHomePhone("4959880012")
-//            .withMobilePhone("9660001213").withFerstEmail("some@some.mail")
-//            .withThirdEmail("some2@some.mail").withBday("5").withBmonth("May")
-//            .withByear("1987").withNotesText("test notes");
     app.contact().createContact(contact, true);
 
     assertEquals(app.contact().count(), before.size() + 1);
