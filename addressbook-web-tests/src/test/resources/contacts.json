@@ -13,20 +13,5 @@
     "byear": "1987",
     "notesText": "test notes 0",
     "photo": "src/test/resources/asd.jpg"
-  },
-  {
-    "name": "Anna",
-    "middlename": "Amina",
-    "lastname": "Bespalova",
-    "address": "Moscow Lenina 10",
-    "homePhone": "4959880012",
-    "mobilePhone": "9660001213",
-    "ferstEmail": "some@some.mail",
-    "thirdEmail": "some2@some.mail",
-    "bday": "5",
-    "bmonth": "May",
-    "byear": "1987",
-    "notesText": "test notes 1",
-    "photo": "src/test/resources/asd.jpg"
   }
 ]
