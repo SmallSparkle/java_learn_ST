@@ -95,19 +95,6 @@ public class ContactData {
   private String photo;
 
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ContactData that = (ContactData) o;
-    return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name, lastname);
-  }
-
   public int getId() {
     return id;
   }
@@ -277,6 +264,19 @@ public class ContactData {
   public ContactData withPhoto(File photo) {
     this.photo = photo.getPath();
     return this;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname) && Objects.equals(address, that.address) && Objects.equals(homePhone, that.homePhone) && Objects.equals(mobilePhone, that.mobilePhone) && Objects.equals(workPhone, that.workPhone) && Objects.equals(secondHomePhone, that.secondHomePhone) && Objects.equals(ferstEmail, that.ferstEmail) && Objects.equals(secondEmail, that.secondEmail) && Objects.equals(thirdEmail, that.thirdEmail);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, lastname, address, homePhone, mobilePhone, workPhone, secondHomePhone, ferstEmail, secondEmail, thirdEmail);
   }
 
   @Override
