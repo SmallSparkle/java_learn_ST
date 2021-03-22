@@ -2,46 +2,97 @@ package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.JsonAdapter;
+import org.hibernate.annotations.Type;
 import ru.stqa.pft.addressbook.generators.FileJsonAdapter;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
+
+  @Id
+  @Column(name = "id")
   private int id;
+
   @Expose
+  @Column(name = "firstname")
   private String name;
+
   @Expose
+  @Transient
   private String middlename;
+
   @Expose
+  @Column(name = "lastname")
   private String lastname;
+
   @Expose
+  @Column(name = "address")
+  @Type(type = "text")
   private String address;
+
   @Expose
+  @Column(name = "home")
+  @Type(type = "text")
   private String homePhone;
+
   @Expose
+  @Column(name = "mobile")
+  @Type(type = "text")
   private String mobilePhone;
+
+  @Column(name = "work")
+  @Type(type = "text")
   private String workPhone;
+
+  @Column(name = "phone2")
+  @Type(type = "text")
   private String secondHomePhone;
+
   @Expose
+  @Column(name = "email")
+  @Type(type = "text")
   private String ferstEmail;
+
+  @Column(name = "email2")
+  @Type(type = "text")
   private String secondEmail;
+
   @Expose
+  @Column(name = "email3")
+  @Type(type = "text")
   private String thirdEmail;
+
   @Expose
+  @Transient
   private String bday;
+
   @Expose
+  @Transient
   private String bmonth;
+
   @Expose
+  @Transient
   private String byear;
+
   @Expose
+  @Transient
   private String notesText;
 
+  @Transient
   private String allPhones;
+
+  @Transient
   private String allEmails;
+
   @Expose
   @JsonAdapter(FileJsonAdapter.class)
-  private File photo;
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
 
 
   @Override
@@ -130,7 +181,7 @@ public class ContactData {
   }
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
   public ContactData withId(int id) {
@@ -224,18 +275,15 @@ public class ContactData {
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
-  }
-
-  public String withPhoto(String photoPath) {
-    return photoPath;
   }
 
   @Override
   public String toString() {
     return "ContactData{" +
-            "name='" + name + '\'' +
+            "id=" + id +
+            ", name='" + name + '\'' +
             ", lastname='" + lastname + '\'' +
             '}';
   }
