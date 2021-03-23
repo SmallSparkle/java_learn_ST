@@ -90,7 +90,6 @@ public class ContactData {
   private String allEmails;
 
   @Expose
-  @JsonAdapter(FileJsonAdapter.class)
   @Column(name = "photo")
   @Type(type = "text")
   private String photo;

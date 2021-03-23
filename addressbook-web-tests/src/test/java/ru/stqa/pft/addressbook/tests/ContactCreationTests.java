@@ -26,11 +26,12 @@ public class ContactCreationTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    if(app.db().groups().size() == 0) {}
-    app.goTo().groupPage();
-    app.group().createGroup(new GroupData().withName("test1"));
+    if (app.db().groups().size() == 0) {
+      app.goTo().groupPage();
+      app.group().createGroup(new GroupData().withName("test1"));
+    }
+    app.goTo().homePage();
   }
-
 
   @DataProvider
   public Iterator<Object[]> validContactsFromJson() throws IOException {
@@ -54,8 +55,21 @@ public class ContactCreationTests extends TestBase {
 
     assertEquals(app.contact().count(), before.size() + 1);
     Contacts after = app.db().contacts();
-    assertThat(after, equalTo(before.withAdded(
-            contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+
+    ContactData addedContact = contact.withId(contact.getId())
+            .withHomePhone(contact.getHomePhone())
+            .withMobilePhone(contact.getMobilePhone())
+            .withWorkPhone(contact.getWorkPhone())
+            .withSecondHomePhone(contact.getSecondHomePhone())
+            .withFerstEmail(contact.getFerstEmail())
+            .withSecondEmail(contact.getSecondEmail())
+            .withThirdEmail(contact.getThirdEmail())
+            .withNotesText(contact.getNotesText());
+    Contacts expected = before.withAdded(addedContact);
+
+    assertThat(after, equalTo(expected));
 
   }
 }
+//withAdded(
+//            contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))
