@@ -79,7 +79,8 @@ public class ContactData {
   private String byear;
 
   @Expose
-  @Transient
+  @Column(name = "notes")
+  @Type(type = "text")
   private String notesText;
 
   @Transient
@@ -285,6 +286,14 @@ public class ContactData {
             "id=" + id +
             ", name='" + name + '\'' +
             ", lastname='" + lastname + '\'' +
+            ", address='" + address + '\'' +
+            ", homePhone='" + homePhone + '\'' +
+            ", mobilePhone='" + mobilePhone + '\'' +
+            ", workPhone='" + workPhone + '\'' +
+            ", secondHomePhone='" + secondHomePhone + '\'' +
+            ", ferstEmail='" + ferstEmail + '\'' +
+            ", secondEmail='" + secondEmail + '\'' +
+            ", thirdEmail='" + thirdEmail + '\'' +
             '}';
   }
 

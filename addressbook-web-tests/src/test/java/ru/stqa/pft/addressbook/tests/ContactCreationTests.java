@@ -26,12 +26,11 @@ public class ContactCreationTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
+    if(app.db().groups().size() == 0) {}
     app.goTo().groupPage();
-    if (app.group().all().size() == 0) {
-      app.group().createGroup(new GroupData().withName("test1"));
-    }
-    app.goTo().homePage();
+    app.group().createGroup(new GroupData().withName("test1"));
   }
+
 
   @DataProvider
   public Iterator<Object[]> validContactsFromJson() throws IOException {
@@ -50,11 +49,11 @@ public class ContactCreationTests extends TestBase {
 
   @Test (dataProvider = "validContactsFromJson")
   public void testUntitledTestCase(ContactData contact) {
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     app.contact().createContact(contact, true);
 
     assertEquals(app.contact().count(), before.size() + 1);
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertThat(after, equalTo(before.withAdded(
             contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
 

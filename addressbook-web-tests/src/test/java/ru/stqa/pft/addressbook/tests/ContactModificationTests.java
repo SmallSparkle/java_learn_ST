@@ -6,6 +6,8 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
@@ -21,6 +23,7 @@ public class ContactModificationTests extends TestBase {
     if(app.db().contacts().size() == 0) {
       app.contact().createContact(new ContactData()
               .withName("Anna").withMiddlename("Amina").withLastname("Bespalova")
+              .withPhoto(new File("src/test/resources/asd.jpg"))
               .withAddress("Moscow Lenina 10").withHomePhone("4959880012")
               .withMobilePhone("9660001213").withFerstEmail("some@some.mail")
               .withThirdEmail("some2@some.mail").withBday("5").withBmonth("May")
@@ -43,7 +46,20 @@ public class ContactModificationTests extends TestBase {
 
     assertEquals(app.contact().count(), before.size());
     Contacts after = app.db().contacts();
-    assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
+
+    ContactData expectedAfterModification = contact
+            .withHomePhone(modifiedContact.getHomePhone())
+            .withMobilePhone(modifiedContact.getMobilePhone())
+            .withWorkPhone(modifiedContact.getWorkPhone())
+            .withSecondHomePhone(modifiedContact.getSecondHomePhone())
+            .withFerstEmail(modifiedContact.getFerstEmail())
+            .withSecondEmail(modifiedContact.getSecondEmail())
+            .withThirdEmail(modifiedContact.getThirdEmail())
+            .withNotesText(modifiedContact.getNotesText());
+    Contacts expected = before.without(modifiedContact).withAdded(expectedAfterModification);
+
+   // Contacts debug = before.without(modifiedContact).withAdded(contact);
+    assertThat(after, equalTo(expected));
 
   }
 }
