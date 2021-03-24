@@ -53,7 +53,6 @@ public class ContactCreationTests extends TestBase {
   @Test (dataProvider = "validContactsFromJson")
   public void testUntitledTestCase(ContactData contact) {
     Contacts before = app.db().contacts();
-
     app.contact().createContact(contact, true);
 
     assertEquals(app.contact().count(), before.size() + 1);
@@ -67,6 +66,7 @@ public class ContactCreationTests extends TestBase {
     assertTrue(created.isPresent());
     assertThat(created.get(), equalTo(contact.withId(created.get().getId())));
   }
+
 }
 //assertThat(after, equalTo(
 // before.withAdded(
