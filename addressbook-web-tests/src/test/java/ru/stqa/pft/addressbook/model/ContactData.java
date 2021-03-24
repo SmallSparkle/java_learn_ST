@@ -2,12 +2,16 @@ package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.JsonAdapter;
+import org.checkerframework.checker.units.qual.C;
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.Type;
 import ru.stqa.pft.addressbook.generators.FileJsonAdapter;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "addressbook")
@@ -93,6 +97,15 @@ public class ContactData {
   @Column(name = "photo")
   @Type(type = "text")
   private String photo;
+
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
+
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name="address_in_groups",
+          joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<GroupData> groups = new HashSet<GroupData>();
 
 
   public int getId() {
