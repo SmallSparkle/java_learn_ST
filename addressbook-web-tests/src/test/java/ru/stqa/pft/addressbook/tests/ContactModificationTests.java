@@ -7,10 +7,14 @@ import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.io.File;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class ContactModificationTests extends TestBase {
 
@@ -36,31 +40,44 @@ public class ContactModificationTests extends TestBase {
   public void modificationContactTest() {
     Contacts before = app.db().contacts();
     ContactData modifiedContact = before.iterator().next();
-    ContactData contact = new ContactData()
-            .withId(modifiedContact.getId())
-            .withName("Anna").withLastname("Kortikova")
-            .withAddress("Vien 1030 Landstrasse 40").withMobilePhone("10106001213")
+
+    // модифицируем контакт
+    modifiedContact
+            .withName("Anna")
+            .withLastname("Kortikova")
+            .withAddress("Vien 1030 Landstrasse 40")
+            .withMobilePhone("10106001213")
             .withNotesText("Lastname and address have changed");
-    app.contact().modifyContact(contact);
+
+    // формируем список контактов за исключением того, что мы модифицировали
+    List<ContactData> originalListExceptModified = before
+            .stream()
+            .filter(c -> c.getId() != modifiedContact.getId())
+            .collect(Collectors.toList());
+
+    // меняем контакт
+    app.contact().modifyContact(modifiedContact);
     app.goTo().homePage();
 
     assertEquals(app.contact().count(), before.size());
     Contacts after = app.db().contacts();
 
-    ContactData expectedAfterModification = contact
-            .withHomePhone(modifiedContact.getHomePhone())
-            .withMobilePhone(modifiedContact.getMobilePhone())
-            .withWorkPhone(modifiedContact.getWorkPhone())
-            .withSecondHomePhone(modifiedContact.getSecondHomePhone())
-            .withFerstEmail(modifiedContact.getFerstEmail())
-            .withSecondEmail(modifiedContact.getSecondEmail())
-            .withThirdEmail(modifiedContact.getThirdEmail())
-            .withNotesText(modifiedContact.getNotesText());
-    Contacts expected = before.without(modifiedContact).withAdded(expectedAfterModification);
+    // выбираем из базы ТОЛЬКО модифицированный контакт
+    Optional<ContactData> edited = after.
+            stream()
+            .filter(c -> c.getId() == modifiedContact.getId())
+            .findFirst();
 
-   // Contacts debug = before.without(modifiedContact).withAdded(contact);
-    assertThat(after, equalTo(expected));
+    assertTrue(edited.isPresent());
+    assertThat(modifiedContact, equalTo(edited.get()));
 
+    // второй раз выбираем из базы все контакты, КРОМЕ модифицированного
+    List<ContactData> afterListExceptModified = after
+            .stream()
+            .filter(c -> c.getId() != modifiedContact.getId())
+            .collect(Collectors.toList());
+
+    assertThat(afterListExceptModified, equalTo(originalListExceptModified));
   }
 }
 

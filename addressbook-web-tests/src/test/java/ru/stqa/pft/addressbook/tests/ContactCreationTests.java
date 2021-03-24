@@ -16,11 +16,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class ContactCreationTests extends TestBase {
 
@@ -51,25 +53,21 @@ public class ContactCreationTests extends TestBase {
   @Test (dataProvider = "validContactsFromJson")
   public void testUntitledTestCase(ContactData contact) {
     Contacts before = app.db().contacts();
+
     app.contact().createContact(contact, true);
 
     assertEquals(app.contact().count(), before.size() + 1);
     Contacts after = app.db().contacts();
 
-    ContactData addedContact = contact.withId(contact.getId())
-            .withHomePhone(contact.getHomePhone())
-            .withMobilePhone(contact.getMobilePhone())
-            .withWorkPhone(contact.getWorkPhone())
-            .withSecondHomePhone(contact.getSecondHomePhone())
-            .withFerstEmail(contact.getFerstEmail())
-            .withSecondEmail(contact.getSecondEmail())
-            .withThirdEmail(contact.getThirdEmail())
-            .withNotesText(contact.getNotesText());
-    Contacts expected = before.withAdded(addedContact);
+    Optional<ContactData> created = after.
+            stream().
+            skip(before.size()). // пропустить все элементы, кроме последнего
+            findFirst();
 
-    assertThat(after, equalTo(expected));
-
+    assertTrue(created.isPresent());
+    assertThat(created.get(), equalTo(contact.withId(created.get().getId())));
   }
 }
-//withAdded(
-//            contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))
+//assertThat(after, equalTo(
+// before.withAdded(
+// contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))

@@ -12,6 +12,9 @@
     "bmonth": "May",
     "byear": "1987",
     "notesText": "test notes 0",
-    "photo": "src/test/resources/asd.jpg"
+    "photo": "src/test/resources/asd.jpg",
+    "workPhone": "",
+    "secondHomePhone": "",
+    "secondEmail": ""
   }
 ]
