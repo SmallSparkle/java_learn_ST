@@ -58,10 +58,10 @@ public class ContactCreationTests extends TestBase {
     assertEquals(app.contact().count(), before.size() + 1);
     Contacts after = app.db().contacts();
 
-    Optional<ContactData> created = after.
-            stream().
-            skip(before.size()). // пропустить все элементы, кроме последнего
-            findFirst();
+    Optional<ContactData> created = after
+            .stream()
+            .skip(before.size()) // пропустить все элементы, кроме последнего
+            .findFirst();
 
     assertTrue(created.isPresent());
     assertThat(created.get(), equalTo(contact.withId(created.get().getId())));

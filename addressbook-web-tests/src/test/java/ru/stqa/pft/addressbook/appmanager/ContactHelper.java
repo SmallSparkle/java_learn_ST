@@ -85,6 +85,14 @@ public class ContactHelper extends HelperBase {
     click(By.linkText(s));
   }
 
+  public void createMinContact(ContactData contact, boolean creation) {
+    goToContactCreateForm("add new");
+    fillModifyForm(contact, creation);
+    submit();
+    contactCache = null;
+    returnToPage("home page");
+  }
+
   public void createContact(ContactData contact, boolean creation) {
     goToContactCreateForm("add new");
     fillContactForm(contact, creation);

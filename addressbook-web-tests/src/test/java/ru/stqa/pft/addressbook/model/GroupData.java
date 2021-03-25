@@ -34,12 +34,12 @@ public class GroupData {
   @Type(type = "text")
   private String footer;
 
-  public Contacts getContact() {
-    return new Contacts(contact);
+  public Contacts getContacts() {
+    return new Contacts(contacts);
   }
 
-  @ManyToMany(mappedBy = "groups")
-  private Set<ContactData> contact = new HashSet<ContactData>();
+  @ManyToMany(mappedBy = "groups", fetch = FetchType.EAGER)
+  private Set<ContactData> contacts = new HashSet<ContactData>();
 
   public String getName() {
     return name;

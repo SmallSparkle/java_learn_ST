@@ -43,6 +43,8 @@ public class ContactAddToGroup extends TestBase {
     //проверяем что спсок контактов не изменился
     Contacts afterListContacts = app.db().contacts();
     assertEquals(originalListContacts.size(), afterListContacts.size());
+    System.out.println(group);
+    System.out.println(addedContact);
 
     //проверяем что в списке групп контакта есть добавленная группа
     assertTrue(addedContact.getGroups().contains(group));
