@@ -61,17 +61,11 @@ public class ContactRemoveFomGroup extends TestBase {
             .stream()
             .filter((g) -> g.getId() == groupID)
             .findFirst();
-    System.out.println("!!!!!!");
-    System.out.println(groupID);
-    System.out.println(group.get().getId());
 
     Optional<ContactData> contact = app.db().contacts()
             .stream()
             .filter((c) -> c.getId() == contactId)
             .findFirst();
-    System.out.println("!!!!!!");
-    System.out.println(contactId);
-    System.out.println(contact.get().getId());
 
     assertThat(groupID, equalTo(group.get().getId()));
     assertThat(contactId, equalTo(contact.get().getId()));
