@@ -2,7 +2,7 @@ package ru.stqa.pft.mantis.appmanager;
 
 import org.openqa.selenium.WebDriver;
 
-public class RegistrationHelper {
+public class RegistrationHelper extends HelperBase{
   private final ApplicationManager app;
   private WebDriver wd;
 
