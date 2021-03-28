@@ -38,6 +38,7 @@ public class ApplicationManager {
       wd = new InternetExplorerDriver();
     }
     wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+    wd.get(properties.getProperty("web.baseUrl"));
   }
 
   public void stop() {
