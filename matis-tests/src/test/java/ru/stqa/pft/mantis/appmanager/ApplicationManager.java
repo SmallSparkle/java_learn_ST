@@ -54,7 +54,7 @@ public class ApplicationManager {
     return registrationHelper;
   }
 
-  public WebDriver getDrivewr() {
+  public WebDriver getDriver() {
     if (wd == null) {
       if (browser.equals(CHROME)) {
         wd = new ChromeDriver();
@@ -75,4 +75,7 @@ public class ApplicationManager {
     }
     return ftp;
   }
+
+  public MailH
+
 }

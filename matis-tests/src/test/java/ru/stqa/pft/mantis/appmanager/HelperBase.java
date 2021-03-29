@@ -12,7 +12,7 @@ public class HelperBase {
 
   public HelperBase(ApplicationManager app) {
     this.app = app;
-    this.wd = app.getWebDriwer();
+    this.wd = app.getDriver();
   }
 
   protected void click(By locator) {
