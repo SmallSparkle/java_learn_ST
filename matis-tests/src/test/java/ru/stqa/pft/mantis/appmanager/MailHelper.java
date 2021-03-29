@@ -29,7 +29,7 @@ public class MailHelper {
         return wiser.getMessages().stream().map((m) -> toModelMail(m)).collect(Collectors.toList());
       }
       try {
-        Thread.sleep(1000);
+        Thread.sleep(3000);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
@@ -54,7 +54,8 @@ public class MailHelper {
     wiser.start();
   }
 
-  public void stop() {
+  public void stop() throws MessagingException {
+    wiser.dumpMessages(System.out);
     wiser.stop();
   }
 
