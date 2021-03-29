@@ -1,5 +1,6 @@
 package ru.stqa.pft.mantis.appmanager;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import static jdk.nashorn.internal.objects.NativeJava.type;
 import static org.openqa.selenium.remote.BrowserType.*;
 
 public class ApplicationManager {
@@ -21,7 +23,8 @@ public class ApplicationManager {
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
-
+//  private HelperBase helper;
+private AdminHelper admin;
 
 
   public ApplicationManager(String browser) {
@@ -33,12 +36,27 @@ public class ApplicationManager {
   public void init() throws IOException {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
   }
 
   public void stop() {
     if (wd != null) {
       wd.quit();
     }
+  }
+
+  public void loginUI() throws ClassNotFoundException {
+    wd.get(getProperty("web.baseUrl") + "login_page.php");
+    type(By.id("username"), "administrator");
+//    wd.findElement(By.id("username")).click();
+//    wd.findElement(By.id("username")).clear();
+//    wd.findElement(By.id("username")).sendKeys("administrator");
+    wd.findElement(By.xpath("//input[@value='Вход']")).click();
+    type(By.id("password"), "root");
+//    wd.findElement(By.id("password")).click();
+//    wd.findElement(By.id("password")).clear();
+//    wd.findElement(By.id("password")).sendKeys("root");
+    wd.findElement(By.xpath("//input[@value='Вход']")).click();
   }
 
   public HttpSession newSession() {
@@ -84,5 +102,19 @@ public class ApplicationManager {
     }
     return mailHelper;
   }
+
+  public AdminHelper admin() {
+    if(admin == null) {
+      admin = new AdminHelper(this);
+    }
+    return admin;
+  }
+
+//  public HelperBase helper() {
+//    if(helper == null) {
+//      helper = new HelperBase(this);
+//    }
+//    return helper;
+//  }
 
 }

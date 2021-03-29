@@ -102,7 +102,7 @@ public class ContactData {
     return new Groups(groups);
   }
 
-  @ManyToMany(fetch = FetchType.EAGER)
+   @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(name="address_in_groups",
           joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
   private Set<GroupData> groups = new HashSet<GroupData>();

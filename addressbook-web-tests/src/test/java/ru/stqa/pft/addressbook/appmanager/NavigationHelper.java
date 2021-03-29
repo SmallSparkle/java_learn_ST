@@ -21,10 +21,10 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void homePage() {
-    wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    if (isElementPresent(By.id("maintable"))) {
-      return;
-    }
+//    wd.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+//    if (isElementPresent(By.id("maintable"))) {
+//      return;
+//    }
     click(By.linkText("home"));
   }
 

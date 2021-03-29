@@ -14,5 +14,159 @@
     <byear>1987</byear>
     <notesText>test notes 0</notesText>
     <photo>src/test/resources/asd.jpg</photo>
+    <groups/>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>0</id>
+    <name>Anna</name>
+    <middlename>Amina</middlename>
+    <lastname>Bespalova</lastname>
+    <address>Moscow Lenina 10</address>
+    <homePhone>4959880012</homePhone>
+    <mobilePhone>9660001213</mobilePhone>
+    <ferstEmail>some@some.mail</ferstEmail>
+    <thirdEmail>some2@some.mail</thirdEmail>
+    <bday>5</bday>
+    <bmonth>May</bmonth>
+    <byear>1987</byear>
+    <notesText>test notes 1</notesText>
+    <photo>src/test/resources/asd.jpg</photo>
+    <groups/>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>0</id>
+    <name>Anna</name>
+    <middlename>Amina</middlename>
+    <lastname>Bespalova</lastname>
+    <address>Moscow Lenina 10</address>
+    <homePhone>4959880012</homePhone>
+    <mobilePhone>9660001213</mobilePhone>
+    <ferstEmail>some@some.mail</ferstEmail>
+    <thirdEmail>some2@some.mail</thirdEmail>
+    <bday>5</bday>
+    <bmonth>May</bmonth>
+    <byear>1987</byear>
+    <notesText>test notes 2</notesText>
+    <photo>src/test/resources/asd.jpg</photo>
+    <groups/>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>0</id>
+    <name>Anna</name>
+    <middlename>Amina</middlename>
+    <lastname>Bespalova</lastname>
+    <address>Moscow Lenina 10</address>
+    <homePhone>4959880012</homePhone>
+    <mobilePhone>9660001213</mobilePhone>
+    <ferstEmail>some@some.mail</ferstEmail>
+    <thirdEmail>some2@some.mail</thirdEmail>
+    <bday>5</bday>
+    <bmonth>May</bmonth>
+    <byear>1987</byear>
+    <notesText>test notes 3</notesText>
+    <photo>src/test/resources/asd.jpg</photo>
+    <groups/>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>0</id>
+    <name>Anna</name>
+    <middlename>Amina</middlename>
+    <lastname>Bespalova</lastname>
+    <address>Moscow Lenina 10</address>
+    <homePhone>4959880012</homePhone>
+    <mobilePhone>9660001213</mobilePhone>
+    <ferstEmail>some@some.mail</ferstEmail>
+    <thirdEmail>some2@some.mail</thirdEmail>
+    <bday>5</bday>
+    <bmonth>May</bmonth>
+    <byear>1987</byear>
+    <notesText>test notes 4</notesText>
+    <photo>src/test/resources/asd.jpg</photo>
+    <groups/>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>0</id>
+    <name>Anna</name>
+    <middlename>Amina</middlename>
+    <lastname>Bespalova</lastname>
+    <address>Moscow Lenina 10</address>
+    <homePhone>4959880012</homePhone>
+    <mobilePhone>9660001213</mobilePhone>
+    <ferstEmail>some@some.mail</ferstEmail>
+    <thirdEmail>some2@some.mail</thirdEmail>
+    <bday>5</bday>
+    <bmonth>May</bmonth>
+    <byear>1987</byear>
+    <notesText>test notes 5</notesText>
+    <photo>src/test/resources/asd.jpg</photo>
+    <groups/>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>0</id>
+    <name>Anna</name>
+    <middlename>Amina</middlename>
+    <lastname>Bespalova</lastname>
+    <address>Moscow Lenina 10</address>
+    <homePhone>4959880012</homePhone>
+    <mobilePhone>9660001213</mobilePhone>
+    <ferstEmail>some@some.mail</ferstEmail>
+    <thirdEmail>some2@some.mail</thirdEmail>
+    <bday>5</bday>
+    <bmonth>May</bmonth>
+    <byear>1987</byear>
+    <notesText>test notes 6</notesText>
+    <photo>src/test/resources/asd.jpg</photo>
+    <groups/>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>0</id>
+    <name>Anna</name>
+    <middlename>Amina</middlename>
+    <lastname>Bespalova</lastname>
+    <address>Moscow Lenina 10</address>
+    <homePhone>4959880012</homePhone>
+    <mobilePhone>9660001213</mobilePhone>
+    <ferstEmail>some@some.mail</ferstEmail>
+    <thirdEmail>some2@some.mail</thirdEmail>
+    <bday>5</bday>
+    <bmonth>May</bmonth>
+    <byear>1987</byear>
+    <notesText>test notes 7</notesText>
+    <photo>src/test/resources/asd.jpg</photo>
+    <groups/>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>0</id>
+    <name>Anna</name>
+    <middlename>Amina</middlename>
+    <lastname>Bespalova</lastname>
+    <address>Moscow Lenina 10</address>
+    <homePhone>4959880012</homePhone>
+    <mobilePhone>9660001213</mobilePhone>
+    <ferstEmail>some@some.mail</ferstEmail>
+    <thirdEmail>some2@some.mail</thirdEmail>
+    <bday>5</bday>
+    <bmonth>May</bmonth>
+    <byear>1987</byear>
+    <notesText>test notes 8</notesText>
+    <photo>src/test/resources/asd.jpg</photo>
+    <groups/>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>0</id>
+    <name>Anna</name>
+    <middlename>Amina</middlename>
+    <lastname>Bespalova</lastname>
+    <address>Moscow Lenina 10</address>
+    <homePhone>4959880012</homePhone>
+    <mobilePhone>9660001213</mobilePhone>
+    <ferstEmail>some@some.mail</ferstEmail>
+    <thirdEmail>some2@some.mail</thirdEmail>
+    <bday>5</bday>
+    <bmonth>May</bmonth>
+    <byear>1987</byear>
+    <notesText>test notes 9</notesText>
+    <photo>src/test/resources/asd.jpg</photo>
+    <groups/>
   </ru.stqa.pft.addressbook.model.ContactData>
 </list>
