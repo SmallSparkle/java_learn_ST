@@ -20,6 +20,8 @@ public class ApplicationManager {
   private final Properties properties;
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
+  private MailHelper mailHelper;
+
 
 
   public ApplicationManager(String browser) {
@@ -76,6 +78,11 @@ public class ApplicationManager {
     return ftp;
   }
 
-  public MailH
+  public MailHelper mail() {
+    if (mailHelper == null) {
+      mailHelper = new MailHelper(this);
+    }
+    return mailHelper;
+  }
 
 }
