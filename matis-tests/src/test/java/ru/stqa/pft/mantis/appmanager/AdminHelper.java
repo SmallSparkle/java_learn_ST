@@ -1,14 +1,13 @@
 package ru.stqa.pft.mantis.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import ru.stqa.pft.mantis.models.UserData;
 
+import java.util.Optional;
 
 
 public class AdminHelper extends HelperBase {
-  protected ApplicationManager app;
-  protected WebDriver wd;
-
   public AdminHelper(ApplicationManager app) {
     super(app);
   }
@@ -18,14 +17,13 @@ public class AdminHelper extends HelperBase {
 //    this.wd = app.getDriver();
 //  }
 
-  public void changePassword(String userID) {
-    goToMenu("//div[@id='sidebar']/ul/li[6]");
-    wd.findElements(By.cssSelector("ul[class='nav.nav-tabs.padding-18']>li")).get(1).click();
-    wd.findElement(By.linkText(String.format("manage_user_edit_page.php?user_id=%s" + userID))).click();
-    click(By.cssSelector("//input[@value='Сбросить пароль']"));
+  public void changePassword(Optional<UserData> user) throws InterruptedException {
+    wd.findElement(By.cssSelector("a[href*='manage_overview_page']")).click();
+    wd.findElements(By.cssSelector(".nav-tabs > li")).get(1).click();
+//    wd.navigate().refresh();
+//    Thread.sleep(3000);
+    wd.findElement(By.linkText(String.format("manage_user_edit_page.php?user_id=%s", user.get().getId()))).click();
+    click(By.xpath("//form[@id='manage-user-reset-form']/fieldset/span/input"));
   }
 
-  public void goToMenu(String s) {
-    wd.findElement(By.xpath(s)).click();
-  }
 }

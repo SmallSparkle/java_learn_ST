@@ -48,15 +48,15 @@ public class ApplicationManager {
 
   public void loginUI() throws ClassNotFoundException {
     wd.get(getProperty("web.baseUrl") + "login_page.php");
-    type(By.id("username"), "administrator");
-//    wd.findElement(By.id("username")).click();
-//    wd.findElement(By.id("username")).clear();
-//    wd.findElement(By.id("username")).sendKeys("administrator");
+//    type(By.id("username"), "administrator");
+    wd.findElement(By.id("username")).click();
+    wd.findElement(By.id("username")).clear();
+    wd.findElement(By.id("username")).sendKeys("administrator");
     wd.findElement(By.xpath("//input[@value='Вход']")).click();
-    type(By.id("password"), "root");
-//    wd.findElement(By.id("password")).click();
-//    wd.findElement(By.id("password")).clear();
-//    wd.findElement(By.id("password")).sendKeys("root");
+//    type(By.id("password"), "root");
+    wd.findElement(By.id("password")).click();
+    wd.findElement(By.id("password")).clear();
+    wd.findElement(By.id("password")).sendKeys("root");
     wd.findElement(By.xpath("//input[@value='Вход']")).click();
   }
 
@@ -116,7 +116,7 @@ public class ApplicationManager {
     if (data == null) {
       data = new DataHelper(this);
     }
-    return data();
+    return data;
   }
 
   public DbHelper db() {

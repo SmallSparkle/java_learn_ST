@@ -4,31 +4,33 @@ import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.stqa.pft.mantis.models.UserData;
 
 import javax.mail.MessagingException;
+import java.util.Optional;
 
 public class ChangePasswordTests extends TestBase {
-  private String userId;
+  private Optional<UserData> user;
 
   @BeforeMethod
   public void before() {
 //    старт почтового клиента
     app.mail().start();
 //    саздать пользоватеоля по http -> найти его в базе и полусить его Id
-    userId = Integer.toString(app.data().createUser().get().getId());
+    user = app.data().createUser();
 
 
   }
 
 
   @Test
-  public void testLoginAfterChangedPassword() throws ClassNotFoundException {
+  public void testLoginAfterChangedPassword() throws ClassNotFoundException, InterruptedException {
 //    Администратор входит в систему
     app.loginUI();
 
 //    переходит на страницу управления пользователями
 //    выбирает заданного пользователя и нажимает кнопку Reset Password
-    app.admin().changePassword(userId);
+    app.admin().changePassword(user);
 
 //    Отправляется письмо на адрес пользователя,
 //    тесты должны получить это письмо,
