@@ -21,6 +21,6 @@ public class Users extends ForwardingSet<UserData> {
 
   @Override
   protected Set<UserData> delegate() {
-    return null;
+    return delegate;
   }
 }

@@ -10,17 +10,17 @@ public class ConnectionTest {
 
   @Test
   public void testDbConnection() {
+//    Class.forName("com.mysql.jdbc.Driver");
 
     Connection conn = null;
     try {
       conn =
               DriverManager.getConnection("jdbc:mysql://localhost:3306/bugtracker?user=root&password=");
       Statement st = conn.createStatement();
-      ResultSet rs = st.executeQuery("select id, username, email");
+      ResultSet rs = st.executeQuery("select id,username,email from mantis_user_table");
       Users users = new Users();
       while (rs.next()) {
         users.add(new UserData().setId(rs.getInt("id"))
-                        .setUsername(rs.getString("username"))
                         .setUsername(rs.getString("username"))
                         .setEmail(rs.getString("email")));
       }

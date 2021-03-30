@@ -1,9 +1,14 @@
 package ru.stqa.pft.mantis.models;
 
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.Where;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Entity
 @Table(name = "mantis_user_table")
 public class UserData {
 
@@ -17,7 +22,8 @@ public class UserData {
   @Column(name ="email")
   private String email;
 
-  @Column(name ="enabled")
+  @Column(name ="enabled", columnDefinition = "TINYINT")
+  @Type(type = "org.hibernate.type.NumericBooleanType")
   private boolean status;
 
   public int getId() {
@@ -54,5 +60,14 @@ public class UserData {
   public UserData setStatus(boolean status) {
     this.status = status;
     return this;
+  }
+
+  @Override
+  public String toString() {
+    return "UserData{" +
+            "id=" + id +
+            ", username='" + username + '\'' +
+            ", email='" + email + '\'' +
+            '}';
   }
 }

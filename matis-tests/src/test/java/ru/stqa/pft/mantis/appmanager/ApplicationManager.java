@@ -23,9 +23,10 @@ public class ApplicationManager {
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
-//  private HelperBase helper;
-private AdminHelper admin;
-
+  //  private HelperBase helper;
+  private AdminHelper admin;
+  private DataHelper data;
+  private DbHelper dbHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -36,7 +37,7 @@ private AdminHelper admin;
   public void init() throws IOException {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
-
+    dbHelper = new DbHelper();
   }
 
   public void stop() {
@@ -104,12 +105,23 @@ private AdminHelper admin;
   }
 
   public AdminHelper admin() {
-    if(admin == null) {
+    if (admin == null) {
       admin = new AdminHelper(this);
     }
     return admin;
   }
 
+
+  public DataHelper data() {
+    if (data == null) {
+      data = new DataHelper(this);
+    }
+    return data();
+  }
+
+  public DbHelper db() {
+    return dbHelper;
+  }
 //  public HelperBase helper() {
 //    if(helper == null) {
 //      helper = new HelperBase(this);
