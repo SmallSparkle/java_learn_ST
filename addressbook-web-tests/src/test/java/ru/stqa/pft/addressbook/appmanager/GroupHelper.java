@@ -67,6 +67,14 @@ public class GroupHelper extends HelperBase {
     returnToPage("group page");
   }
 
+  public GroupData createGroupObject(GroupData group) {
+    initGroupCreation();
+    fillGroupForm(group);
+    submitGroupCreation();
+    groupCache = null;
+    return group;
+  }
+
   public void modifyGroup(GroupData group) {
     selectGroupById(group.getId());
     initGroupModification();
@@ -97,8 +105,20 @@ public class GroupHelper extends HelperBase {
   public void removeContact(int groupId, int contactId) {
     wd.findElement(By.name("group")).click();
     new Select(wd.findElement(By.name("group"))).selectByValue(Integer.toString(groupId));
-    //selectByVisibleText("test 0"); value="175"
     wd.findElement(By.cssSelector("input[id='" + contactId + "']")).click();
     wd.findElement(By.name("remove")).click();
+  }
+
+  public GroupData findFreeGroup(Groups groups, ContactData contact) {
+    GroupData foundGroup = null;
+    for (GroupData group : groups) {
+      if (!contact.getGroups().contains(group)) {
+
+        foundGroup = group;
+        break;
+      }
+    }
+
+    return foundGroup;
   }
 }

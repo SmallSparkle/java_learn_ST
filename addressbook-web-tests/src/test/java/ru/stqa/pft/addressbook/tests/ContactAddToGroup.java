@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
@@ -8,9 +9,9 @@ import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.File;
+import java.util.Optional;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class ContactAddToGroup extends TestBase {
 
@@ -34,20 +35,37 @@ public class ContactAddToGroup extends TestBase {
 
   @Test
   public void testAddContactToGroup() {
-    Contacts originalListContacts = app.db().contacts();
-    ContactData addedContact = originalListContacts.iterator().next();
     Groups originalListGroups = app.db().groups();
-    GroupData group = originalListGroups.iterator().next();
-    app.contact().addToGroup(addedContact, group);
+    Contacts originalListContacts = app.db().contacts();
+    ContactData foundContact = app.contact().findFreeContact(originalListGroups, originalListContacts);
+    // обходим все группы в поисках той; которой нет у контакта
+    GroupData foundGroup = app.group().findFreeGroup(originalListGroups, foundContact);
+
+    if (foundGroup == null) {
+      // надо создать группу и присвоить её в переменную foundGroup
+      app.goTo().groupPage();
+      app.group().createGroupObject(new GroupData().withName("test1"));
+      foundGroup = app.db().groups().stream().skip(originalListGroups.size()).findFirst().get();
+    }
+
+    app.goTo().homePage();
+    app.contact().addToGroup(foundContact, foundGroup);
 
     //проверяем что спсок контактов не изменился
     Contacts afterListContacts = app.db().contacts();
     assertEquals(originalListContacts.size(), afterListContacts.size());
-    System.out.println(group);
-    System.out.println(addedContact);
+    System.out.println(foundGroup);
+    System.out.println(foundContact);
+
+    // нам нужно еще раз выбрать контакт из базы потому что foundContact не содержит новых групп
+    int id = foundContact.getId();
+    Optional<ContactData> updatedContact = afterListContacts
+            .stream()
+            .filter((c) -> c.getId() == id)
+            .findFirst();
 
     //проверяем что в списке групп контакта есть добавленная группа
-    assertTrue(addedContact.getGroups().contains(group));
+    assertTrue(updatedContact.get().getGroups().contains(foundGroup));
   }
 
 }

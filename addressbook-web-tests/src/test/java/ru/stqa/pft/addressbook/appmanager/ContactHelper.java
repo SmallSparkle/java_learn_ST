@@ -8,6 +8,7 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.List;
 
@@ -158,8 +159,21 @@ public class ContactHelper extends HelperBase {
   public void addToGroup(ContactData contact, GroupData group) {
     selectContactById(contact.getId());
     wd.findElement(By.name("to_group")).click();
-    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
+    new Select(wd.findElement(By.name("to_group"))).selectByValue(Integer.toString(group.getId()));
     wd.findElement(By.name("add")).click();
-
   }
+
+  public ContactData findFreeContact(Groups groups, Contacts contacts) {
+    ContactData foundContact = null;
+    // обходим контакты и пытаемся найти контакт который не во всех группах
+    for (ContactData contact : contacts) {
+      foundContact = contact;
+      if (contact.getGroups().size() != groups.size()) {
+        break;
+      }
+    }
+
+    return foundContact;
+  }
+
 }
