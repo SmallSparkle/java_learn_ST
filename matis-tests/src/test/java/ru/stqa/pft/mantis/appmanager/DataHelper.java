@@ -23,7 +23,7 @@ public class DataHelper extends HelperBase{
     String name = String.format("user%sname", now);
     app.registration().start(user, email);
     List<MailMessage> mailMessages = app.mail().waiTForMail(2, 10000);
-    String confirmationLink = app.registration().findConfirmationLink(mailMessages, email);
+    String confirmationLink = app.registration().findLinkFromMailWithText(mailMessages, email, "Спасибо за регистрацию.");
     app.registration().finish(confirmationLink, password, name);
     Users users = app.db().users();
     Optional<User> createdUser = users

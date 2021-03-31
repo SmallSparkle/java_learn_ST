@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import static org.testng.AssertJUnit.assertTrue;
 
 public class ChangePasswordTests extends TestBase {
   private Optional<User> user;
@@ -33,16 +32,17 @@ public class ChangePasswordTests extends TestBase {
   public void testLoginAfterChangedPassword() throws ClassNotFoundException, InterruptedException, IOException {
     app.loginUI();
     app.session().changePassword(user);
+    HttpSession session = app.newSession();
+    session.logout();
 //    Ожидаем письмо и берем ссылку для сброса пароля
     List<MailMessage> mailMessages = app.mail().waiTForMail(2, 10000);
-    String confirmationLink = app.registration().findConfirmationLink(mailMessages, user.get().getEmail());
-    String passwordNew = String.format("password%s", user.get().getId());
-
+    String confirmationLink = app.registration()
+            .findLinkFromMailWithText(mailMessages, user.get().getEmail(), "Your password has been reset");
     //    пройти по этой ссылке и изменить пароль.
+    String passwordNew = String.format("password%s", user.get().getId());
     app.session().updateUserPassword(confirmationLink, user, passwordNew);
 
     //Логин по http протоколу с новым паролем
-    HttpSession session = app.newSession();
     Assert.assertTrue(session.login(user.get().getUsername(), passwordNew));
     Assert.assertTrue(session.isLoggedInAs(user.get().getUsername()));
   }

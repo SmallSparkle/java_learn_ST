@@ -32,11 +32,17 @@ public class HttpSession {
     params.add(new BasicNameValuePair("username", username));
     params.add(new BasicNameValuePair("password", password));
     params.add(new BasicNameValuePair("secure_session", "on"));
-//    params.add(new BasicNameValuePair("return", "index.php"));
     post.setEntity(new UrlEncodedFormEntity(params));
     CloseableHttpResponse response = hrrpclient.execute(post);
     String body = getTextFrom(response);
     return body.contains(String.format("<span class=\"user-info\">%s</span>", username));
+  }
+
+  public boolean logout() throws IOException {
+    HttpGet get = new HttpGet(app.getProperty("web.baseUrl") + "logout_page.php");
+    CloseableHttpResponse response = hrrpclient.execute(get);
+    String body = getTextFrom(response);
+    return body.contains("<div class=\"login-logo\">");
   }
 
   private String getTextFrom(CloseableHttpResponse response) throws IOException {

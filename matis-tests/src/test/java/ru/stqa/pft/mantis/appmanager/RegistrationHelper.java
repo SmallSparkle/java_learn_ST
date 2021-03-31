@@ -6,6 +6,8 @@ import ru.lanwen.verbalregex.VerbalExpression;
 import ru.stqa.pft.mantis.models.MailMessage;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class RegistrationHelper extends HelperBase {
 
@@ -28,9 +30,11 @@ public class RegistrationHelper extends HelperBase {
     click(By.className("bigger-110"));
   }
 
-  public String findConfirmationLink(List<MailMessage> mailMessages, String email) {
-    MailMessage mailMessage = mailMessages.stream().filter((m) -> m.to.equals(email)).findFirst().get();
+  public String findLinkFromMailWithText(List<MailMessage> mailMessages, String email, String text) {
+    Optional<MailMessage> message = mailMessages.stream().filter((m) -> m.to.equals(email) && m.text.contains(text)).findFirst();
     VerbalExpression regex = VerbalExpression.regex().find("http://").nonSpace().oneOrMore().build();
-    return regex.getText(mailMessage.text);
+    return regex.getText(message.get().text);
   }
+
+
 }
