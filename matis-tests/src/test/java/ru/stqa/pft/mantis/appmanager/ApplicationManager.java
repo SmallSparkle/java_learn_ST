@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import static jdk.nashorn.internal.objects.NativeJava.type;
 import static org.openqa.selenium.remote.BrowserType.*;
 
 public class ApplicationManager {
@@ -24,7 +23,7 @@ public class ApplicationManager {
   private FtpHelper ftp;
   private MailHelper mailHelper;
   //  private HelperBase helper;
-  private AdminHelper admin;
+  private SessionHelper admin;
   private DataHelper data;
   private DbHelper dbHelper;
   private SoapHelper soapHelper;
@@ -49,12 +48,10 @@ public class ApplicationManager {
 
   public void loginUI() throws ClassNotFoundException {
     wd.get(getProperty("web.baseUrl") + "login_page.php");
-//    type(By.id("username"), "administrator");
     wd.findElement(By.id("username")).click();
     wd.findElement(By.id("username")).clear();
     wd.findElement(By.id("username")).sendKeys("administrator");
     wd.findElement(By.xpath("//input[@value='Вход']")).click();
-//    type(By.id("password"), "root");
     wd.findElement(By.id("password")).click();
     wd.findElement(By.id("password")).clear();
     wd.findElement(By.id("password")).sendKeys("root");
@@ -105,9 +102,9 @@ public class ApplicationManager {
     return mailHelper;
   }
 
-  public AdminHelper admin() {
+  public SessionHelper session() {
     if (admin == null) {
-      admin = new AdminHelper(this);
+      admin = new SessionHelper(this);
     }
     return admin;
   }

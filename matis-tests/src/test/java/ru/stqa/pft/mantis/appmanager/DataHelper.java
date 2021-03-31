@@ -19,7 +19,7 @@ public class DataHelper extends HelperBase{
     long now = System.currentTimeMillis();
     String email = String.format("user%s@localchost.localdomain", now);
     String user = String.format("user%s", now);
-    String password = "password";
+    String password = System.getProperty("userPassword");
     String name = String.format("user%sname", now);
     app.registration().start(user, email);
     List<MailMessage> mailMessages = app.mail().waiTForMail(2, 10000);

@@ -1,12 +1,19 @@
 package ru.stqa.pft.mantis.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.stqa.pft.mantis.appmanager.HttpSession;
+import ru.stqa.pft.mantis.models.MailMessage;
 import ru.stqa.pft.mantis.models.User;
 
 import javax.mail.MessagingException;
+import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
+
+import static org.testng.AssertJUnit.assertTrue;
 
 public class ChangePasswordTests extends TestBase {
   private Optional<User> user;
@@ -23,19 +30,21 @@ public class ChangePasswordTests extends TestBase {
 
 
   @Test
-  public void testLoginAfterChangedPassword() throws ClassNotFoundException, InterruptedException {
-//    Администратор входит в систему
+  public void testLoginAfterChangedPassword() throws ClassNotFoundException, InterruptedException, IOException {
     app.loginUI();
+    app.session().changePassword(user);
+//    Ожидаем письмо и берем ссылку для сброса пароля
+    List<MailMessage> mailMessages = app.mail().waiTForMail(2, 10000);
+    String confirmationLink = app.registration().findConfirmationLink(mailMessages, user.get().getEmail());
+    String passwordNew = String.format("password%s", user.get().getId());
 
-//    переходит на страницу управления пользователями
-//    выбирает заданного пользователя и нажимает кнопку Reset Password
-    app.admin().changePassword(user);
+    //    пройти по этой ссылке и изменить пароль.
+    app.session().updateUserPassword(confirmationLink, user, passwordNew);
 
-//    Отправляется письмо на адрес пользователя,
-//    тесты должны получить это письмо,
-//    извлечь из него ссылку для смены пароля,
-//    пройти по этой ссылке и изменить пароль.
-//    Затем тесты должны проверить, что пользователь может войти в систему с новым паролем.
+    //Логин по http протоколу с новым паролем
+    HttpSession session = app.newSession();
+    Assert.assertTrue(session.login(user.get().getUsername(), passwordNew));
+    Assert.assertTrue(session.isLoggedInAs(user.get().getUsername()));
   }
 
   @AfterMethod
