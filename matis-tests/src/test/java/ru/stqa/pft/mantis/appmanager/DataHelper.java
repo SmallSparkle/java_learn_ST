@@ -1,7 +1,7 @@
 package ru.stqa.pft.mantis.appmanager;
 
 import ru.stqa.pft.mantis.models.MailMessage;
-import ru.stqa.pft.mantis.models.UserData;
+import ru.stqa.pft.mantis.models.User;
 import ru.stqa.pft.mantis.models.Users;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public class DataHelper extends HelperBase{
     super(app);
   }
 
-  public Optional<UserData> createUser(){
+  public Optional<User> createUser(){
     long now = System.currentTimeMillis();
     String email = String.format("user%s@localchost.localdomain", now);
     String user = String.format("user%s", now);
@@ -26,7 +26,7 @@ public class DataHelper extends HelperBase{
     String confirmationLink = app.registration().findConfirmationLink(mailMessages, email);
     app.registration().finish(confirmationLink, password, name);
     Users users = app.db().users();
-    Optional<UserData> createdUser = users
+    Optional<User> createdUser = users
             .stream()
             .filter((u) -> u.getEmail().equals(email))
             .findFirst();

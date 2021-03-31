@@ -7,7 +7,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import ru.stqa.pft.mantis.models.UserData;
+import ru.stqa.pft.mantis.models.User;
 
 
 import java.util.List;
@@ -37,8 +37,8 @@ public class HbConnectionTest {
   public void testHbConnectionG() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    List<UserData> result = session.createQuery("from UserData").list();
-    for (UserData user : result) {
+    List<User> result = session.createQuery("from UserData").list();
+    for (User user : result) {
       System.out.println(user);
       System.out.println(" ");
     }

@@ -4,23 +4,22 @@ import com.google.common.collect.ForwardingSet;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-public class Users extends ForwardingSet<UserData> {
+public class Users extends ForwardingSet<User> {
 
-  private Set<UserData> delegate;
+  private Set<User> delegate;
 
-  public Users(Collection<UserData> contact) {
-    this.delegate = new HashSet<UserData>(contact);
+  public Users(Collection<User> contact) {
+    this.delegate = new HashSet<User>(contact);
   }
 
   public Users() {
-    this.delegate = new HashSet<UserData>();
+    this.delegate = new HashSet<User>();
   }
 
   @Override
-  protected Set<UserData> delegate() {
+  protected Set<User> delegate() {
     return delegate;
   }
 }

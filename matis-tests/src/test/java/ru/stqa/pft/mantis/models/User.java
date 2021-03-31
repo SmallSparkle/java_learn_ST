@@ -1,7 +1,6 @@
 package ru.stqa.pft.mantis.models;
 
 import org.hibernate.annotations.Type;
-import org.hibernate.annotations.Where;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "mantis_user_table")
-public class UserData {
+public class User {
 
   @Id
   @Column(name = "id")
@@ -30,7 +29,7 @@ public class UserData {
     return id;
   }
 
-  public UserData setId(int id) {
+  public User setId(int id) {
     this.id = id;
     return this;
   }
@@ -39,7 +38,7 @@ public class UserData {
     return username;
   }
 
-  public UserData setUsername(String username) {
+  public User setUsername(String username) {
     this.username = username;
     return this;
   }
@@ -48,7 +47,7 @@ public class UserData {
     return email;
   }
 
-  public UserData setEmail(String email) {
+  public User setEmail(String email) {
     this.email = email;
     return this;
   }
@@ -57,7 +56,7 @@ public class UserData {
     return status;
   }
 
-  public UserData setStatus(boolean status) {
+  public User setStatus(boolean status) {
     this.status = status;
     return this;
   }

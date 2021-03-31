@@ -1,7 +1,7 @@
 package ru.stqa.pft.mantis.tests.dbtests;
 
 import org.testng.annotations.Test;
-import ru.stqa.pft.mantis.models.UserData;
+import ru.stqa.pft.mantis.models.User;
 import ru.stqa.pft.mantis.models.Users;
 
 import java.sql.*;
@@ -20,7 +20,7 @@ public class ConnectionTest {
       ResultSet rs = st.executeQuery("select id,username,email from mantis_user_table");
       Users users = new Users();
       while (rs.next()) {
-        users.add(new UserData().setId(rs.getInt("id"))
+        users.add(new User().setId(rs.getInt("id"))
                         .setUsername(rs.getString("username"))
                         .setEmail(rs.getString("email")));
       }
