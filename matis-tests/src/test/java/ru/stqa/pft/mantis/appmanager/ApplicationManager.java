@@ -128,6 +128,7 @@ public class ApplicationManager {
     return soapHelper;
   }
 
+
 //  public HelperBase helper() {
 //    if(helper == null) {
 //      helper = new HelperBase(this);

@@ -2,20 +2,11 @@ package ru.stqa.pft.mantis.models;
 
 public class Issue {
   private int id;
-  private String name;
   private String summary;
   private String description;
   private Project project;
   private String status;
 
-  public String getName() {
-    return name;
-  }
-
-  public Issue withName(String name) {
-    this.name = name;
-    return this;
-  }
 
   public String getStatus() {
     return status;
