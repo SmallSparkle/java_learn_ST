@@ -28,47 +28,53 @@ public class ContactRemoveFomGroup extends TestBase {
               .withMobilePhone("9660001213")
               .withNotesText("test notes"), true);
     }
-    Groups groups = app.db().groups();
-    for (GroupData g : groups) {
-      if (g.getContacts().size() == 0) {
-        ContactData contact = app.db().contacts().iterator().next();
-        app.goTo().homePage();
-        app.contact().addToGroup(contact, g);
-      }
-    }
     app.goTo().homePage();
   }
 
   @Test
   public void testRemoveContactFromGroup() {
-    //ищем группу в которой есть контакты
     Groups groups = app.db().groups();
+    int groupID = 0;
+    int contactId = 0;
+    for (GroupData gr : groups) {
+      if (gr.getContacts().size() == 0) {
+        groupID = gr.getId();
+        ContactData contact = app.db().contacts().iterator().next();
+        contactId = contact.getId();
+        app.goTo().homePage();
+        app.contact().addToGroup(contact, gr);
+      } else {
+    //ищем группу в которой есть контакты
     Optional<GroupData> groupWithContacts = groups
             .stream()
             .filter((g) -> g.getContacts().size() > 0)
             .findFirst();
     assertTrue(groupWithContacts.isPresent());
-    int groupID = groupWithContacts.get().getId();
-    int contactId = groupWithContacts.get().getContacts()
+    groupID = groupWithContacts.get().getId();
+    contactId = groupWithContacts.get().getContacts()
             .stream()
             .findFirst().get().getId();
+      }
+    }
 
     //удаляем контакт из группы
     app.group().removeContact(groupID, contactId);
 
     //убеждаемся что группа и контакт не удалены
+    int finalGroupID = groupID;
     Optional<GroupData> group = app.db().groups()
             .stream()
-            .filter((g) -> g.getId() == groupID)
+            .filter((g) -> g.getId() == finalGroupID)
             .findFirst();
 
+    int finalContactId = contactId;
     Optional<ContactData> contact = app.db().contacts()
             .stream()
-            .filter((c) -> c.getId() == contactId)
+            .filter((c) -> c.getId() == finalContactId)
             .findFirst();
 
-    assertThat(groupID, equalTo(group.get().getId()));
-    assertThat(contactId, equalTo(contact.get().getId()));
+    assertThat(finalGroupID, equalTo(group.get().getId()));
+    assertThat(finalContactId, equalTo(contact.get().getId()));
     //убеждаемся что контакт не входит в группу
     assertFalse(contact.get().getGroups().contains(group));
 
