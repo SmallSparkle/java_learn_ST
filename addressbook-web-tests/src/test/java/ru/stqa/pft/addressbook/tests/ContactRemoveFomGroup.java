@@ -43,6 +43,7 @@ public class ContactRemoveFomGroup extends TestBase {
         contactId = contact.getId();
         app.goTo().homePage();
         app.contact().addToGroup(contact, gr);
+        app.goTo().homePage();
       } else {
     //ищем группу в которой есть контакты
     Optional<GroupData> groupWithContacts = groups
