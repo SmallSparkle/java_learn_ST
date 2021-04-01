@@ -35,25 +35,27 @@ public class SoapHelper {
   private MantisConnectPortType getMantisConnect() throws ServiceException, MalformedURLException {
     MantisConnectPortType mc = new MantisConnectLocator()
             .getMantisConnectPort(
-                    new URL(System.getProperty("soap.connect")));
+                    new URL("http://localhost/mantisbt-2.25.0/api/soap/mantisconnect.php"));
     return mc;
   }
 
   public Issue addIssue(Issue issue) throws MalformedURLException, ServiceException, RemoteException {
     MantisConnectPortType mc = getMantisConnect();
+    String[] categories = mc.mc_project_get_categories(System.getProperty("soap.login"), System.getProperty("soap.password"),
+            BigInteger.valueOf(issue.getProject().getId()));
     IssueData issueData = new IssueData();
     issueData.setSummary(issue.getSummary());
     issueData.setDescription(issue.getDescription());
     issueData.setProject(new ObjectRef
             (BigInteger.valueOf(issue.getProject().getId()), issue.getProject().getName()));
-//    issueData.setCategory();
+    issueData.setCategory(categories[0]);
     BigInteger issueId = mc.mc_issue_add(System.getProperty("soap.login"), System.getProperty("soap.password"), issueData);
     IssueData createdIssueData = mc.mc_issue_get(System.getProperty("soap.login"), System.getProperty("soap.password"), issueId);
-return new Issue().withId(createdIssueData.getId().intValue())
-        .withSummary(createdIssueData.getSummary())
-        .withDescription(createdIssueData.getDescription())
-        .withProject(new Project().withId(createdIssueData.getProject().getId().intValue())
-                .withName(createdIssueData.getProject().getName()));
+    return new Issue().withId(createdIssueData.getId().intValue())
+            .withSummary(createdIssueData.getSummary())
+            .withDescription(createdIssueData.getDescription())
+            .withProject(new Project().withId(createdIssueData.getProject().getId().intValue())
+                    .withName(createdIssueData.getProject().getName()));
   }
 
 }
