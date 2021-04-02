@@ -52,6 +52,7 @@ public class ChangePasswordTests extends TestBase {
 //    стоп почтового клиента
     app.mail().stop();
 //    удалить пользователя из базы
+    app.db().deleteUser(user.get().getId());
 
   }
 

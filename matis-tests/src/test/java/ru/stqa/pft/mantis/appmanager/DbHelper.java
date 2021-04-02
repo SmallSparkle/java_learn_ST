@@ -6,6 +6,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import org.hibernate.query.Query;
 import ru.stqa.pft.mantis.models.User;
 import ru.stqa.pft.mantis.models.Users;
 
@@ -24,12 +25,27 @@ public class DbHelper {
   }
 
   public Users users() {
-    Session session = sessionFactory.openSession();
-    session.beginTransaction();
+    Session session = getSession();
     List<User> result = session.createQuery("from User").list();
     session.getTransaction().commit();
     session.close();
     return new Users(result);
+  }
+
+  public void deleteUser(int id) {
+    User user = new User();
+    user.setId(id);
+    Session session = getSession();
+    session.delete(user);
+    session.getTransaction().commit();
+    session.close();
+  }
+
+
+  private Session getSession() {
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    return session;
   }
 
 }
