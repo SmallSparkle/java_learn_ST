@@ -24,5 +24,5 @@ Jenkins + Selenium Server
 SQL used Hibernate
 ###### [addressbook module](https://github.com/SmallSparkle/java_learn_ST/tree/main/addressbook-web-tests)
 ###### [mantis module](https://github.com/SmallSparkle/java_learn_ST/tree/main/matis-tests)
-
+_________________________________________________
 #### [my CV](https://smallsparkle.github.io/AnastasiaBespalova/)
