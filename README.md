@@ -7,20 +7,22 @@ TestNG + Gradle + Selenium
 Jenkins + Selenium Server
 
 #### UI tests
-[addressbook module](https://github.com/SmallSparkle/java_learn_ST/tree/main/addressbook-web-tests)
+###### [addressbook module](https://github.com/SmallSparkle/java_learn_ST/tree/main/addressbook-web-tests)
 
 #### API tests
-[Soap](https://github.com/SmallSparkle/java_learn_ST/tree/main/matis-tests) 
+###### [Soap](https://github.com/SmallSparkle/java_learn_ST/tree/main/matis-tests) 
 
-[Rest](https://github.com/SmallSparkle/java_learn_ST/tree/main/matis-tests)
+###### [Rest](https://github.com/SmallSparkle/java_learn_ST/tree/main/matis-tests)
 
 #### CSV, XML, JSON
-[addressbook module](https://github.com/SmallSparkle/java_learn_ST/tree/main/addressbook-web-tests)
+###### [addressbook module](https://github.com/SmallSparkle/java_learn_ST/tree/main/addressbook-web-tests)
 
 #### Http and FTP protocols
-[mantis module](https://github.com/SmallSparkle/java_learn_ST/tree/main/matis-tests) 
+###### [mantis module](https://github.com/SmallSparkle/java_learn_ST/tree/main/matis-tests) 
 
 #### Data Base
-SQL used Hibernate - [addressbook module](https://github.com/SmallSparkle/java_learn_ST/tree/main/addressbook-web-tests) and [mantis module](https://github.com/SmallSparkle/java_learn_ST/tree/main/matis-tests)
+SQL used Hibernate
+###### [addressbook module](https://github.com/SmallSparkle/java_learn_ST/tree/main/addressbook-web-tests)
+###### [mantis module](https://github.com/SmallSparkle/java_learn_ST/tree/main/matis-tests)
 
-[my CV](https://smallsparkle.github.io/AnastasiaBespalova/)
+#### [my CV](https://smallsparkle.github.io/AnastasiaBespalova/)
