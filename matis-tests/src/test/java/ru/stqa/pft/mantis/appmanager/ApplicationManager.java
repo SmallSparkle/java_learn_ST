@@ -46,17 +46,7 @@ public class ApplicationManager {
     }
   }
 
-  public void loginUI() throws ClassNotFoundException {
-    wd.get(getProperty("web.baseUrl") + "login_page.php");
-    wd.findElement(By.id("username")).click();
-    wd.findElement(By.id("username")).clear();
-    wd.findElement(By.id("username")).sendKeys("administrator");
-    wd.findElement(By.xpath("//input[@value='Вход']")).click();
-    wd.findElement(By.id("password")).click();
-    wd.findElement(By.id("password")).clear();
-    wd.findElement(By.id("password")).sendKeys("root");
-    wd.findElement(By.xpath("//input[@value='Вход']")).click();
-  }
+
 
   public HttpSession newSession() {
     return new HttpSession(this);

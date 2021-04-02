@@ -1,5 +1,6 @@
 package ru.stqa.pft.mantis.appmanager;
 
+import org.openqa.selenium.By;
 import ru.stqa.pft.mantis.models.MailMessage;
 import ru.stqa.pft.mantis.models.User;
 import ru.stqa.pft.mantis.models.Users;
@@ -33,4 +34,17 @@ public class DataHelper extends HelperBase{
     assertTrue(createdUser.isPresent());
     return createdUser;
   }
+
+  public void loginUI() throws ClassNotFoundException {
+    wd.get(app.getProperty("web.baseUrl") + "login_page.php");
+    wd.findElement(By.id("username")).click();
+    wd.findElement(By.id("username")).clear();
+    wd.findElement(By.id("username")).sendKeys("administrator");
+    wd.findElement(By.xpath("//input[@value='Вход']")).click();
+    wd.findElement(By.id("password")).click();
+    wd.findElement(By.id("password")).clear();
+    wd.findElement(By.id("password")).sendKeys("root");
+    wd.findElement(By.xpath("//input[@value='Вход']")).click();
+  }
+
 }
