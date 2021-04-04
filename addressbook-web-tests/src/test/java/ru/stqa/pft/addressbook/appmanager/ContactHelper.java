@@ -99,7 +99,7 @@ public class ContactHelper extends HelperBase {
     fillContactForm(contact, creation);
     submit();
     contactCache = null;
-    returnToPage("home page");
+    returnToPage("home");
   }
 
   public void modifyContact(ContactData contact) {

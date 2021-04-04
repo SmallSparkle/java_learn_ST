@@ -20,6 +20,11 @@ dependencies {
     //testImplementation 'ch.qos.logback:logback-classic:1.2.3'
 }
 
+task testOne(type: Test) {
+    useTestNG {
+    }
+}
+
 task testGroups(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
