@@ -10,16 +10,19 @@ import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
+import java.io.File;
 import java.util.List;
 
 public class DbHelper {
 
   private final SessionFactory sessionFactory;
 
-  public DbHelper() {
+  public DbHelper(String path) {
     // A SessionFactory is set up once for an application!
+    File f = new File(path);
+
     final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-            .configure() // configures settings from hibernate.cfg.xml
+            .configure(f) // configures settings from hibernate.cfg.xml
             .build();
     sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
   }
