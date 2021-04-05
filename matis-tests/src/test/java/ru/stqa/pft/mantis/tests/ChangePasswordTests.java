@@ -33,7 +33,7 @@ public class ChangePasswordTests extends TestBase {
 //    найти пользователя в базе
     Users users = app.db().users();
     Optional<User> user = users
-            .stream()
+            .stream().filter((u) -> u.getUsername() != "administrator")
             .findAny();
     assertTrue(user.isPresent());
     app.data().loginUI();
